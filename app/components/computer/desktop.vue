@@ -1,7 +1,12 @@
 <template>
-  <div class="flex relative wallpaper w-full h-full z-25" @click="closeStartbar">
+  <div 
+    class="flex relative wallpaper w-full h-full z-25"
+    :style="{'--windowW': width + 'px', '--windowH': height + 'px'}"
+    @click="closeStartbar">
+    <!--only the currently active one has ref windowElem-->
     <DesktopWindow
       v-for="window in visibleWindows"
+      :ref="openedWindows.find(w => w.z == 4)?.id === window.id? 'windowElem' : ''"
       :key="window.id"
       :style="{position: 'absolute', zIndex: window.z, left: window.x + 'px', top: window.y + 'px'}"
       :name="window.name"
@@ -35,7 +40,11 @@ import DesktopWindow from './design/desktop-window.vue';
 import Startbar from './startbar.vue';
 import Icon from './design/icon.vue';
 import { useSound } from '../../composables/useSound.ts';
-import type { PossibleFolders, WindowStatus, WindowState, OpenableFiles, IconType } from '~/types/windows.ts';
+import type {WindowState, OpenableFiles, IconType } from '~/types/computer.ts';
+import { useWindowSize, useElementSize } from '@vueuse/core'
+const { width, height } = useWindowSize()
+const windowElement = useTemplateRef('windowElem')
+const { width:elemW, height:elemH } = useElementSize(windowElement)
 
 
 onMounted(() => {
@@ -134,8 +143,8 @@ function startDrag(e : PointerEvent, windowId: number ) {
 function onDrag(e : PointerEvent) {
   currWindow.value!.x = e.clientX - clickOffset.value.x;
   currWindow.value!.y = e.clientY - clickOffset.value.y;
-  currWindow.value!.x = Math.max(0, Math.min(currWindow.value!.x, 200))
-  currWindow.value!.y = Math.max(0, Math.min(currWindow.value!.y, 252))
+  currWindow.value!.x = Math.max(0, Math.min(currWindow.value!.x, width.value - elemW.value))
+  currWindow.value!.y = Math.max(0, Math.min(currWindow.value!.y, height.value - elemH.value))
 }
 
 function stopDrag(e : PointerEvent) {
@@ -148,10 +157,10 @@ function stopDrag(e : PointerEvent) {
 
 <style scoped>
 .wallpaper {
-  width: 640px;
-  height: 640px;
+  width: var(--windowW);
+  height: var(--windowH);
   background-image: url('sprites/wallpaper.png');
-  background-size: 640px 640px;
+  background-size: var(--windowW) var(--windowH);
   image-rendering: pixelated;
 }
 </style>

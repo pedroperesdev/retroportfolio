@@ -32,7 +32,7 @@
 <script lang="ts" setup>
 import GameProjectsContent from '../game-projects-content.vue';
 import WebProjectsContent from '../web-projects-content.vue';
-import type { PossibleFolders, OpenableFiles, IconType } from '~/types/windows.ts';
+import type { PossibleFolders, OpenableFiles, IconType } from '~/types/computer.ts';
 
 
 const props = withDefaults(defineProps<{

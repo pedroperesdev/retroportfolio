@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import Icon from './design/icon.vue';
-import type { OpenableFiles, IconType } from '~/types/windows.ts';
+import type { OpenableFiles, IconType } from '~/types/computer.ts';
 
 const iconType = 'file' as IconType
 

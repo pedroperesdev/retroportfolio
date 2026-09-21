@@ -1,6 +1,6 @@
 <template>
-    <div class="border-[2px] border-blue-600 bg-blue-600 w-[100px] rounded-md" @click="$emit('isDesktop')">
-        <div class="flex font-pixel text-black text-2xl border-[2px] border-blue-400 stripes rounded-sm justify-center">
+    <div class="border-[4px] border-blue-600 bg-blue-600 w-[100px]" @click="$emit('isDesktop')">
+        <div class="flex font-pixel text-black text-2xl bg-blue-200 hover:bg-gray-50 justify-center">
             {{ props.text }}
         </div>
     </div>
@@ -16,15 +16,4 @@ const props = defineProps<{
 
 <style scoped>
 
-.stripes {
-    background: linear-gradient(
-        var(--color-gray-50) 0px,
-        var(--color-blue-100) 10px,
-        var(--color-blue-300) 28px
-    )
-}
-
-.stripes:hover {
-    background: var(--color-gray-300)
-}
 </style>

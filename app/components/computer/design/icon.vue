@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { IconType, IconPlace } from '~/types/windows';
+import type { IconType, IconPlace } from '~/types/computer.ts';
 
 const props = withDefaults(defineProps<{
     icon?: IconType,

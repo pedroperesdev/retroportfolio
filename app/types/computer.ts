@@ -1,4 +1,5 @@
-export type PossibleFolders = 'web projects' | 'game projects' | 'Calculator';
+export type Screen = 'cmd' | 'booting' | 'login' | 'desktop' | 'none'
+export type PossibleFolders = 'web projects' | 'game projects' | 'calculator';
 export type WindowStatus = 'normal' | 'maximized' | 'minimized';
 export type IconType = 'folder' | 'file' | 'calculator'
 export type IconPlace = 'desktop' | 'navbar' | 'infolder'

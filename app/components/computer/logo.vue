@@ -1,9 +1,11 @@
 <template>
-    <div class="flex logo-container flex flex-col gap-4 items-center">
-        <div class="logo" />
-        <div class="relative z-0">
-            <h1 class="font-pixel text-white">OceanOS</h1>
-            <h1 class="absolute z-1 top-[2px] left-[2px] font-pixel text-black">OceanOS</h1>
+    <div class="flex justify-center items-center h-screen">
+        <div class="logo-container flex flex-col gap-4 items-center">
+            <div class="logo" />
+            <div class="relative z-0">
+                <h1 class="font-pixel text-white">OceanOS</h1>
+                <h1 class="absolute z-1 top-[2px] left-[2px] font-pixel text-black">OceanOS</h1>
+            </div>
         </div>
     </div>
 </template>

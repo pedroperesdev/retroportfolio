@@ -1,21 +1,28 @@
 <template>
-  <div class="flex flex-col items-center absolute w-[640px] h-[640px] z-10 stripes"
-  @click="$emit('changeWindow', 'select')"
-  >
-    <div class="title mt-40"/>
-    <div class="mt-20 text-bg px-4 prevent-select blink">
-        <h1 class="text-3xl text-purple-200 font-pixel">Click anywhere to begin</h1>
+    <div 
+        class="flex h-screen stripes justify-center items-center"
+        @click="$emit('changeWindow', 'select')"
+    >
+        <div 
+            class="flex flex-col gap-24 justify-center items-center main-content"
+            :style="{'--windowW': width, '--windowH': height}"
+        >
+            <div class="title"/>
+            <div class="text-bg px-4 prevent-select blink">
+                <h1 class="text-3xl text-purple-200 font-pixel">Click anywhere to begin</h1>
+            </div>
+            <div class="flex gap-10">
+                <div class="icon-mail blink-hover" @click.stop="$emit('openLink', 'mail')"/>
+                <div class="icon-linkedin blink-hover" @click.stop="$emit('openLink', 'linkedin')"/>
+                <div class="icon-github blink-hover" @click.stop="$emit('openLink', 'github')"/>
+            </div>
+        </div>
     </div>
-    <div class="flex mt-24 gap-10">
-        <div class="icon-mail blink-hover" @click.stop="$emit('openLink', 'mail')"/>
-        <div class="icon-linkedin blink-hover" @click.stop="$emit('openLink', 'linkedin')"/>
-        <div class="icon-github blink-hover" @click.stop="$emit('openLink', 'github')"/>
-    </div>
-  </div>
 </template>
 
 <script lang="ts" setup>
-
+import { useWindowSize } from '@vueuse/core'
+const { width, height } = useWindowSize()
 
 
 </script>
@@ -107,6 +114,10 @@
     0%, 20% {opacity: 0;}
     30% {opacity: 1;}
     100% {opacity: 0;}
+}
+
+.main-content {
+    scale: calc(min(var(--windowW), var(--windowH))/640)
 }
 
 
