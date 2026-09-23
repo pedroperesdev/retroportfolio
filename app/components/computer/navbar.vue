@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-[60px] navbar-apps border-t-[4px] border-t-blue-800 w-full">
-    <div class="w-[140px] -mt-[3px]" :class="props.clicked ? 'navbar-start-clicked' : 'navbar-start'" @click.stop="$emit('openStartbar')">
+    <div class="w-[140px] -mt-[4px]" :class="props.clicked ? 'navbar-start-clicked' : 'navbar-start'" @click.stop="$emit('openStartbar')">
         <h1 class="font-jersey text-white absolute z-2 top-1 left-[24px]">start</h1>
         <h1 class="font-jersey text-black absolute z-1 top-1 left-[22px]">start</h1>
     </div>
@@ -15,16 +15,17 @@
         />
     </div>
     <div class="flex justify-center items-center px-[12px] ml-auto border-blue-400 border-[4px]">
-        <h2 class="font-pixel">{{ currTime.getHours() }}:{{ currTime.getMinutes() }}</h2>
+        <h2 class="font-pixel">{{ currTime.getHours() }}:{{ formattedMinutes() }}</h2>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import type { IconType } from '~/types/computer.ts';
 import Icon from './design/icon.vue';
 const props = withDefaults(defineProps<{
     clicked?: boolean
-    tabs?: { id: number, icon: string }[]
+    tabs?: { id: number, icon: IconType }[]
     activeId?: number
 }>(), {
     clicked : false,
@@ -39,6 +40,12 @@ onMounted(() => {
         currTime.value = new Date()
     }, 1000)
 })
+
+function formattedMinutes() {
+    if(currTime.value.getMinutes() < 10)
+        return '0' + currTime.value.getMinutes();
+    return currTime.value.getMinutes();
+}
 
 
 </script>
@@ -76,8 +83,8 @@ h2 {
         var(--color-green-600) 66%,
         var(--color-green-600) 100%
     );
-    border-top: 3px solid var(--color-green-800);
-    border-right: 3px solid var(--color-green-800);
+    border-top: 4px solid var(--color-green-800);
+    border-right: 4px solid var(--color-green-800);
 }
 
 .navbar-start-clicked {
@@ -90,8 +97,8 @@ h2 {
         var(--color-green-600) 66%,
         var(--color-green-600) 100%
     );
-    border-top: 3px solid var(--color-green-800);
-    border-right: 3px solid var(--color-green-800);
+    border-top: 4px solid var(--color-green-800);
+    border-right: 4px solid var(--color-green-800);
 }
 
 </style>

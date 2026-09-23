@@ -3,10 +3,6 @@ export function useSound(audioId : string) {
     if(audioId == 'main-music') {
         audio.volume = 0.4
     }
-    if(audioId == 'click-sound') {
-        audio.pause()
-        audio.currentTime = 0;
-    }
     audio.play();
     return
 

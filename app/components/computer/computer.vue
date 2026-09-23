@@ -1,6 +1,11 @@
 <template>
-  <div class="h-screen computer-bg">
-    <component 
+  <div class="h-screen computer-bg relative z-0">
+    <div v-if="currScreen==='booting'">
+      <div class="absolute bottom-0 left-40 bubbles bubble-left"/>
+      <div class="absolute bottom-40 right-40 bubbles bubble-right"/>
+      <div class="absolute bottom-80 right-80 bubbles bubble-left"/>
+    </div>
+    <component
       :is="screenMapper[currScreen]"
       @done-booting="init"
       @is-desktop="changeToDesktop"
@@ -37,6 +42,9 @@ function init() {
   setTimeout(() => {
     currScreen.value = 'booting'
     useSound('desktop-sound');
+    setTimeout(() => {
+      useSound('bubbles-sound');
+    }, 1000)
   }, 2000)
   setTimeout(() => {
     currScreen.value = 'login'
@@ -61,10 +69,38 @@ function changeToDesktop() {
     var(--color-blue-600) 150px,
     var(--color-blue-600) 200px,
     var(--color-blue-300) 200px,
-    var(--color-blue-300) 650px,
-    var(--color-blue-200) 650px,
+    var(--color-blue-300) 450px,
+    var(--color-blue-200) 450px,
     var(--color-blue-200) 800px,
     var(--color-blue-200) 1000px
   );
+}
+
+.bubbles {
+    width: 136px;
+    height: 216px;
+    background-image: url('sprites/bubbles.png');
+    background-size: 136px 216px;
+    image-rendering: pixelated;
+}
+
+.bubble-left {
+  animation: bubble-up-left 6s steps(8) forwards
+}
+
+.bubble-right {
+  animation: bubble-up-right 6s steps(8) forwards
+}
+
+@keyframes bubble-up-left {
+  0% { transform: translate(0, 0) }
+  50% { transform: translate(-50%, -350%) scale(1.5) }
+  100% { transform: translate(0, -700%) scale(2) }
+}
+
+@keyframes bubble-up-right {
+  0% { transform: translate(0, 0) }
+  50% { transform: translate(100%, -350%) scale(1.5)  }
+  100% { transform: translate(0, -700%) scale(2)  }
 }
 </style>

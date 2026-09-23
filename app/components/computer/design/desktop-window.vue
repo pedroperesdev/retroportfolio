@@ -1,7 +1,8 @@
 <template>
-    <div 
+    <div
         class="flex flex-col border-[4px]" 
-        :class="[!maximized ? 'w-[440px]' : 'w-[640px]', active ? 'border-blue-800 bg-blue-800' : 'border-gray-800 bg-gray-800', ]"
+        :class="active ? 'border-blue-800 bg-blue-800' : 'border-gray-800 bg-gray-800'"
+        :style="{'width': !maximized ? '440px' : elemW + 'px'}"
     >
         <div 
             class="flex justify-between items-center px-[12px] bg-blue-800 h-[76px]
@@ -22,8 +23,10 @@
         >
             <div 
                 class="flex flex-col gap-[20px] bg-gray-200 border-[4px] px-[24px] py-[16px]" 
-                :class="[!maximized ? 'h-[300px]' : 'h-[496px]', active ? 'border-blue-600' : 'border-gray-600']">
-                <component :is="resolveName(props.name)" @open-file="(file: OpenableFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
+                :class="active ? 'border-blue-600' : 'border-gray-600'"
+                :style="{'height': !maximized ? '400px' : heightMinusNav + 'px'}"
+            >
+                <component :is="resolveName(props.name)" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
             </div>
         </div>
     </div>
@@ -32,11 +35,19 @@
 <script lang="ts" setup>
 import GameProjectsContent from '../game-projects-content.vue';
 import WebProjectsContent from '../web-projects-content.vue';
-import type { PossibleFolders, OpenableFiles, IconType } from '~/types/computer.ts';
+import PrayingPetalsContent from '../praying-petals-content.vue';
+import CalculatorContent from '../calculator-content.vue';
+import type { OpenableFoldersOrFiles, IconType } from '~/types/computer.ts';
+import { useWindowSize } from '@vueuse/core'
+const { width:elemW, height:elemH } = useWindowSize();
+
+let heightMinusNav = computed(() => {
+    return elemH.value - 144
+})
 
 
 const props = withDefaults(defineProps<{
-    name?: PossibleFolders,
+    name?: OpenableFoldersOrFiles,
     maximized?: boolean,
     active?: boolean
 }>(), {
@@ -46,11 +57,12 @@ const props = withDefaults(defineProps<{
 })
 
 
-function resolveName(name: PossibleFolders) {
+function resolveName(name: OpenableFoldersOrFiles) {
     const nameMapper = {
         'web projects': WebProjectsContent,
         'game projects': GameProjectsContent,
-        'Calculator': null
+        'prayingpetals': PrayingPetalsContent,
+        'calculator': CalculatorContent
     }
     return nameMapper[name];
 }

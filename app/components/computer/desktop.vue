@@ -6,8 +6,8 @@
     <!--only the currently active one has ref windowElem-->
     <DesktopWindow
       v-for="window in visibleWindows"
-      :ref="openedWindows.find(w => w.z == 4)?.id === window.id? 'windowElem' : ''"
       :key="window.id"
+      :ref="(el) => {if(openedWindows.find(w => w.z == 4)?.id === window.id) windowElement = el}"
       :style="{position: 'absolute', zIndex: window.z, left: window.x + 'px', top: window.y + 'px'}"
       :name="window.name"
       :active="openedWindows.find(w => w.z == 4)?.id === window.id" 
@@ -19,8 +19,8 @@
       @open-file="openFile"
     />
     <div class="flex flex-col gap-[4px] p-[24px] w-full h-[400px]">
-      <Icon icon="folder" text="web projects" icon-place="desktop" @add-new-window="addNewWindow"/>
-      <Icon icon="folder" text="game projects" icon-place="desktop" @add-new-window="addNewWindow"/>
+      <Icon icon="folder" file-name="web projects" icon-place="desktop" @add-new-window="addNewWindow"/>
+      <Icon icon="folder" file-name="game projects" icon-place="desktop" @add-new-window="addNewWindow"/>
     </div>
     <div class="absolute bottom-0 w-full">
       <Navbar 
@@ -31,6 +31,21 @@
         @open-minimized="openMinimized"
       />
     </div>
+    <div class="absolute bottom-[60px] z-40">
+      <Startbar 
+        v-if="startbar" 
+        ref="navbarElem"
+        @hover-apps="hoverApps"
+        @unhover-apps="unhoverApps"
+      />
+    </div>
+    <div class="absolute bottom-[400px] left-[200px] z-50">
+      <Apps
+        v-if="hoveringApps"
+        @hover-apps-inside="hoverAppsInside"
+        @unhover-apps-inside="unhoverAppsInside"
+      />
+    </div>
   </div>
 </template>
 
@@ -39,12 +54,14 @@ import Navbar from './navbar.vue';
 import DesktopWindow from './design/desktop-window.vue';
 import Startbar from './startbar.vue';
 import Icon from './design/icon.vue';
+import Apps from './apps.vue';
 import { useSound } from '../../composables/useSound.ts';
-import type {WindowState, OpenableFiles, IconType } from '~/types/computer.ts';
+import type {WindowState, OpenableFoldersOrFiles, IconType } from '~/types/computer.ts';
 import { useWindowSize, useElementSize } from '@vueuse/core'
 const { width, height } = useWindowSize()
-const windowElement = useTemplateRef('windowElem')
-const { width:elemW, height:elemH } = useElementSize(windowElement)
+const windowElement = ref<any>(null);
+const { width:elemW, height:elemH } = useElementSize(windowElement);
+
 
 
 onMounted(() => {
@@ -52,6 +69,9 @@ onMounted(() => {
 })
 
 const startbar = ref(false);
+const hoveringApps = ref(false);
+const insideApps = ref(false);
+let closeTimer: ReturnType<typeof setTimeout>;
 const openedWindows = ref<WindowState[]>([]);
 const visibleWindows = computed(() => {
   return openedWindows.value.filter(w => w.status !== 'minimized')
@@ -60,15 +80,38 @@ const clickOffset = ref({ x: 0, y: 0 });
 let id = 0;
 const currWindow = ref<WindowState | null>();
 
-function openFile(file: OpenableFiles, iconType: IconType) {
+function openFile(file: OpenableFoldersOrFiles, iconType: IconType) {
   addNewWindow(file.toString(), iconType)
 }
 
-function addNewWindow(name: string, icon: string) {
+function hoverAppsInside() {
+  clearTimeout(closeTimer)
+  insideApps.value = true;
+  hoveringApps.value = true;
+}
+
+function unhoverAppsInside() {
+  insideApps.value = false;
+  hoveringApps.value = false;
+}
+
+function hoverApps() {
+  insideApps.value = false;
+  hoveringApps.value = true;
+}
+
+function unhoverApps() {
+  closeTimer = setTimeout(() => {
+    if(!insideApps.value)
+      hoveringApps.value = false;
+  }, 100);
+}
+
+function addNewWindow(name: string, icon: IconType) {
   if(openedWindows.value.length >= 4 || openedWindows.value.find(w => w.name == name)) return;
   useSound('click-sound');
   openedWindows.value.map(w => w.z -= 1)
-  let window = { id: id++, x: 0, y: 0, z: 4, name: name, icon: icon, status: 'normal'} as WindowState;
+  let window = { id: id++, x: 100, y: 100, z: 4, name: name, icon: icon, status: 'normal'} as WindowState;
   openedWindows.value.push(window);
 }
 
@@ -121,14 +164,15 @@ function openMinimized(windowId: number) {
   if(!makeSelectedWindowCurrent(windowId)) return;
   const temp = openedWindows.value.find(w => w.id === windowId)
   if(temp) temp.status = 'normal'
-  console.log(openedWindows.value)
 }
 
 function openStartbar() {
+  useSound('click-sound');
   startbar.value = true;
 }
 
 function closeStartbar() {
+  useSound('click-sound');
   startbar.value = false;
 }
 
@@ -143,6 +187,7 @@ function startDrag(e : PointerEvent, windowId: number ) {
 function onDrag(e : PointerEvent) {
   currWindow.value!.x = e.clientX - clickOffset.value.x;
   currWindow.value!.y = e.clientY - clickOffset.value.y;
+  console.log(width, height)
   currWindow.value!.x = Math.max(0, Math.min(currWindow.value!.x, width.value - elemW.value))
   currWindow.value!.y = Math.max(0, Math.min(currWindow.value!.y, height.value - elemH.value))
 }
