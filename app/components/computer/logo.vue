@@ -22,7 +22,7 @@ h1 {
 }
 
 .logo-container {
-    animation: appear 5s steps(5) forwards;
+    animation: appear 5s linear forwards;
 }
 
 @keyframes appear {

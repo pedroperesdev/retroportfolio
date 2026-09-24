@@ -44,6 +44,7 @@
         v-if="hoveringApps"
         @hover-apps-inside="hoverAppsInside"
         @unhover-apps-inside="unhoverAppsInside"
+        @openApp="openFile"
       />
     </div>
   </div>
@@ -187,7 +188,6 @@ function startDrag(e : PointerEvent, windowId: number ) {
 function onDrag(e : PointerEvent) {
   currWindow.value!.x = e.clientX - clickOffset.value.x;
   currWindow.value!.y = e.clientY - clickOffset.value.y;
-  console.log(width, height)
   currWindow.value!.x = Math.max(0, Math.min(currWindow.value!.x, width.value - elemW.value))
   currWindow.value!.y = Math.max(0, Math.min(currWindow.value!.y, height.value - elemH.value))
 }

@@ -85,11 +85,11 @@ function changeToDesktop() {
 }
 
 .bubble-left {
-  animation: bubble-up-left 6s steps(8) forwards
+  animation: bubble-up-left 6s linear forwards
 }
 
 .bubble-right {
-  animation: bubble-up-right 6s steps(8) forwards
+  animation: bubble-up-right 6s linear forwards
 }
 
 @keyframes bubble-up-left {

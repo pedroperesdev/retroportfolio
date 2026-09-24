@@ -6,7 +6,11 @@
           <h1 class="font-pixel" style="writing-mode:sideways-lr">OceanOS</h1>
         </div>
         <div class="flex flex-col bg-blue-200 h-100 w-50 border-l-[2px] border-blue-400">
-          <div class="flex items-center gap-[8px] text-black hover:bg-blue-800 hover:text-white p-[8px]" @mouseenter="$emit('hoverApps')" @mouseleave="$emit('unhoverApps')">
+          <div 
+            class="flex items-center gap-[8px] text-black hover:bg-blue-800 hover:text-white p-[8px]" 
+            @mouseenter="$emit('hoverApps')" 
+            @mouseleave="$emit('unhoverApps')"
+          >
             <Icon 
                 icon="apps"
                 icon-place="startbar"

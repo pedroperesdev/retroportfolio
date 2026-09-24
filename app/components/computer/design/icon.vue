@@ -9,7 +9,7 @@
             :class="variant.iconClass"
             :style="{ '--icon-url': `url(${computeIconUrl()})` }"
         />
-        <h2 :class="variant.textType">{{ shortenTxt(fileName) }}</h2>
+        <h2 v-if="variant.textType" :class="variant.textType">{{ shortenTxt(fileName) }}</h2>
     </div>
 </template>
 
@@ -51,7 +51,7 @@ const propMapper = {
         emitAction: () => emit('openFile', props.fileName, props.icon)
     },
     'startbar': {
-        wrapperClass: 'w-[80px] h-[56px]', 
+        wrapperClass: 'w-[52px] h-[52px]', 
         iconClass: 'icon-startbar', 
         textType: '', 
         emitAction: () => emit('openFile', props.fileName, props.icon)
