@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-col gap-4 h-full">
-        <div class="flex justify-end border-[4px] border-blue-800 overflow-hidden px-2">
+        <div class="flex justify-end bg-[#5ce0f5] border-[4px] border-blue-800 overflow-hidden px-2">
             <h1 class="font-pixel">{{buffer}}</h1>
         </div>
-        <div class="flex flex-col justify-between flex-1">
-            <div class="flex gap-4 justify-between">
+        <div class="flex flex-col justify-between gap-4 flex-1">
+            <div class="flex gap-4 justify-between flex-1">
                 <CalculatorButton 
                     v-for="sym in allSymbols[0]"
                     :key="sym"
@@ -12,7 +12,7 @@
                     @clicked="(symbol: CalcSymbol) => checkButton(symbol)"
                 />
             </div>
-            <div class="flex gap-4 justify-between">
+            <div class="flex gap-4 justify-between gap-4 flex-1">
                 <CalculatorButton 
                     v-for="sym in allSymbols[1]"
                     :key="sym"
@@ -20,7 +20,7 @@
                     @clicked="(symbol: CalcSymbol) => checkButton(symbol)"
                 />
             </div>
-            <div class="flex gap-4 justify-between">
+            <div class="flex gap-4 justify-between gap-4 flex-1">
                 <CalculatorButton 
                     v-for="sym in allSymbols[2]"
                     :key="sym"
@@ -28,7 +28,7 @@
                     @clicked="(symbol: CalcSymbol) => checkButton(symbol)"
                 />
             </div>
-            <div class="flex gap-4 justify-between">
+            <div class="flex gap-4 justify-between gap-4 flex-1">
                 <CalculatorButton 
                     v-for="sym in allSymbols[3]"
                     :key="sym"
@@ -36,7 +36,7 @@
                     @clicked="(symbol: CalcSymbol) => checkButton(symbol)"
                 />
             </div>
-            <div class="flex gap-4 justify-between">
+            <div class="flex gap-4 justify-between gap-4 flex-1">
                 <CalculatorButton 
                     v-for="sym in allSymbols[4]"
                     :key="sym"
@@ -52,12 +52,12 @@
 <script lang="ts" setup>
 import CalculatorButton from './design/calculator-button.vue';
 import type { CalcSymbol, Digit, Operator, ImmediateOp, Action } from '~/types/computer.ts';
-const allSymbols = ref<CalcSymbol[][]>([['Bck', 'C'], ['7', '8', '9', '/', 'sqr'], ['4', '5', '6', '*', '%'], ['1', '2', '3', '-', '1/x'], ['0', '+/-', '.', '+', '=']])
+const allSymbols = ref<CalcSymbol[][]>([['Back', 'C'], ['7', '8', '9', '/', 'sqr'], ['4', '5', '6', '*', '%'], ['1', '2', '3', '-', '1/x'], ['0', '+/-', '.', '+', '=']])
 
 const digits:Digit[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
 const operators:Operator[] = ['/', '*', '%', '-', '+']
 const immediateOps:ImmediateOp[] = ['sqr', '1/x', '+/-']
-const actions:Action[] = ['Bck', 'C', '=']
+const actions:Action[] = ['Back', 'C', '=']
 
 
 const buffer = ref('0')
@@ -113,7 +113,7 @@ function doAction(symbol: Action) {
         } 
         else buffer.value = temp;
     }
-    else if(symbol === 'Bck') {
+    else if(symbol === 'Back') {
         if(buffer.value.length !== 1)
             buffer.value = buffer.value.slice(0, -1)
         else 
@@ -135,7 +135,7 @@ function doAction(symbol: Action) {
 @import "tailwindcss";
 
 h1 {
-    @apply text-4xl
+    @apply text-6xl
 }
 
 

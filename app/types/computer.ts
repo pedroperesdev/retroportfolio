@@ -7,7 +7,7 @@ export type IconPlace = 'desktop' | 'navbar' | 'infolder' | 'startbar';
 export type Digit = '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'.'
 export type Operator = '/'|'*'|'%'|'-'|'+'
 export type ImmediateOp = 'sqr'|'1/x'|'+/-'
-export type Action = 'Bck'|'C'|'='
+export type Action = 'Back'|'C'|'='
 export type CalcSymbol = Digit | Operator | ImmediateOp | Action
 
 

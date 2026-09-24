@@ -37,6 +37,7 @@
         ref="navbarElem"
         @hover-apps="hoverApps"
         @unhover-apps="unhoverApps"
+        @click.stop
       />
     </div>
     <div class="absolute bottom-[400px] left-[200px] z-50">
