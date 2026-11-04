@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full h-full overflow-auto gap-[24px]">
     <div class="flex justify-center">
-        <NuxtImg src="/images/legau/logo.png" loading="lazy" class="max-w-full" />
+        <NuxtImg src="/images/legau/logo.png" class="max-w-full" />
     </div>
     <div class="flex flex-col">
         <h1 class="font-pixel bg-gray-400">Skills used:</h1>

@@ -40,6 +40,7 @@ import CalculatorContent from '../calculator-content.vue';
 import type { OpenableFoldersOrFiles, IconType } from '~/types/computer.ts';
 import { useWindowSize } from '@vueuse/core'
 import LegauInternshipContent from '../legau-internship-content.vue';
+import PhotosContent from '../photos-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
 
 let heightMinusNav = computed(() => {
@@ -66,7 +67,7 @@ function resolveName(name: OpenableFoldersOrFiles) {
         'legau_internship.pdf': LegauInternshipContent,
         'calculator': CalculatorContent,
         'minesweeper': null,
-        'photos': null,
+        'photos': PhotosContent,
         'Recycle Bin': null,
         '': null,
     }

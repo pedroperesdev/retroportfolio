@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full h-full overflow-auto gap-[24px]">
     <div class="flex justify-center">
-        <NuxtImg src="/images/prayingpetals/title.png" loading="lazy" class="max-w-full" />
+        <NuxtImg src="/images/prayingpetals/title.png" class="max-w-full" />
     </div>
     <NuxtLink href="https://rovkin.itch.io/prayingpetals" target="_blank" class="font-pixel cursor-interact-sprite w-fit">https://rovkin.itch.io/prayingpetals</NuxtLink>
     <div class="flex flex-col">
