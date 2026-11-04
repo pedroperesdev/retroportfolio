@@ -1,1 +1,1 @@
-export type GameState = "menu" | "select" | "game" | "computer";
+export type GameState = "menu" | "select" | "game" | "console" | "computer";

@@ -15,11 +15,12 @@
             <Cells :canInteract="!interactingWith" class="absolute z-2 top-[192px] left-[64px]" @get-pos="calcPos"/>
             <Player ref="player" class="absolute z-4 top-[320px] left-[256px]"/>
             <Dialogue 
-            v-if="interactingWith != null" 
-            :item="interactingWith" 
-            class="absolute z-4 top-[416px] left-[16px]"
-            @close-dialogue="closeDialogue"
-            @open-computer="openComputer"
+              v-if="interactingWith != null" 
+              :item="interactingWith" 
+              class="absolute z-4 top-[416px] left-[16px]"
+              @close-dialogue="closeDialogue"
+              @open-computer="openComputer"
+              @open-console="openConsole"
             />
         </div>
     </div>
@@ -45,8 +46,7 @@ const emit = defineEmits(['changeWindow'])
 
 const interactingWith = ref<ItemsWithDialogue | null>(null);
 const player = useTemplateRef<any>('player');
-
-
+const invertedMovementCells = [33, 34, 35, 36, 37, 41, 42, 43, 44, 45]
 
 function calcPos(cell:number){
   let col;
@@ -59,7 +59,8 @@ function calcPos(cell:number){
     col = 8;
     row = cell/8 - 1;
   }
-  player.value.moveToCell(row, col);
+  if(invertedMovementCells.includes(cell)) player.value.moveToCell(row, col, true);
+  else player.value.moveToCell(row, col, false);
 }
 
 //Dialogue popup logic
@@ -70,6 +71,7 @@ function openPcDialogue() {
 
 function openConsoleDialogue() {
   interactingWith.value = "console";
+  useSound('click-sound');
 }
 
 function closeDialogue() {
@@ -81,6 +83,13 @@ function openComputer() {
   interactingWith.value = null;  
   useSound('click-sound');
   emit('changeWindow', 'computer')
+  stopSound('main-music');
+}
+
+function openConsole() {
+  interactingWith.value = null;  
+  useSound('click-sound');
+  emit('changeWindow', 'console')
   stopSound('main-music');
 }
 </script>

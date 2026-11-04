@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="flex items-center hover:bg-blue-200 justify-center flex-1 border-[4px] border-blue-800 bg-white"
+    class="flex items-center cursor-interact-sprite hover:bg-blue-200 justify-center flex-1 border-[4px] border-blue-800 bg-white"
     @click="$emit('clicked', symbol)"
   >
     <h2 class="font-pixel">{{ symbol }}</h2>

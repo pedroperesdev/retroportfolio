@@ -9,13 +9,13 @@
             </div>
             <div class="flex items-end gap-34">
                 <div class="flex flex-col gap-4">
-                    <div class="icon-cv" @click="$emit('openLink', 'cv')"/>
+                    <div class="icon-cv cursor-interact-sprite" @click="$emit('openLink', 'cv')"/>
                     <div class="flex justify-center text-bg prevent-select">
                         <h1 class="text-xl text-purple-200 font-pixel">CV.pdf</h1>
                     </div>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <div class="icon-play ml-6" @click="$emit('changeWindow', 'game')"/>
+                    <div class="icon-play ml-6 cursor-interact-sprite" @click="$emit('changeWindow', 'game')"/>
                     <div class="flex text-bg px-4 justify-center prevent-select">
                         <h1 class="text-xl text-purple-200 font-pixel">Game.exe</h1>
                     </div>

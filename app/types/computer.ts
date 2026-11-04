@@ -1,7 +1,7 @@
-export type Screen = 'cmd' | 'booting' | 'login' | 'desktop' | 'none';
-export type OpenableFoldersOrFiles = '' | 'web projects' | 'game projects' | 'prayingpetals' | 'calculator';
+export type Screen = 'cmd' | 'booting' | 'login' | 'desktop' | 'turnoff' | 'none';
+export type OpenableFoldersOrFiles = '' | 'web projects' | 'game projects' | 'Recycle Bin' | 'prayingpetals.pdf' | 'legau_internship.pdf' | 'calculator' | 'minesweeper' | 'photos';
 export type WindowStatus = 'normal' | 'maximized' | 'minimized';
-export type IconType = 'folder' | 'file' | 'calculator' | 'apps';
+export type IconType = 'folder' | 'recyclebin' | 'file' | 'apps' | 'calculator' | 'minesweeper' | 'photos';
 export type IconPlace = 'desktop' | 'navbar' | 'infolder' | 'startbar';
 
 export type Digit = '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'.'

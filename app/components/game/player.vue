@@ -19,6 +19,8 @@ let signY:number;
 let posX = 0;
 let posY = 0;
 let isMoving = false;
+let invertedMovement = false;
+
 
 let direction = ref('down')
 let playerAnimState = ref('idle')
@@ -32,7 +34,8 @@ defineExpose({
     moveToCell
 });
 
-function moveToCell(row:number, col:number){
+function moveToCell(row:number, col:number, invertOrder:boolean){
+    invertedMovement = invertOrder;
     if(isMoving === false) {
         playerAnimState.value = 'moving'
         isMoving = true;
@@ -44,8 +47,14 @@ function moveToCell(row:number, col:number){
         signX = totalDistX < 0 ? -1 : 1;
         lastFrameTime = performance.now();
         //move vertically first
-        direction.value = signY < 0 ? 'up' : 'down'
-        requestAnimationFrame(moveY);
+        if(!invertOrder){
+            direction.value = signY < 0 ? 'up' : 'down'
+            requestAnimationFrame(moveY);
+        }
+        else{
+            direction.value = signX < 0 ? 'left' : 'right'
+            requestAnimationFrame(moveX);
+        }
         currRow = row;
         currCol = col;
     }
@@ -63,8 +72,14 @@ function moveY(timestamp:number){
     }
     else {
         posY += totalDistY;
-        direction.value = signX < 0 ? 'left' : 'right'
-        requestAnimationFrame(moveX);
+        if(invertedMovement){
+            isMoving = false;
+            playerAnimState.value = 'idle'
+        }
+        else{
+            direction.value = signX < 0 ? 'left' : 'right'
+            requestAnimationFrame(moveX);
+        }
     }
 }
 
@@ -80,8 +95,14 @@ function moveX(timestamp:number){
     }
     else {
         posX += totalDistX;
-        isMoving = false;
-        playerAnimState.value = 'idle'
+        if(invertedMovement){
+            direction.value = signY < 0 ? 'up' : 'down'
+            requestAnimationFrame(moveY);
+        }
+        else{
+            isMoving = false;
+            playerAnimState.value = 'idle'
+        }
     }
 }
 

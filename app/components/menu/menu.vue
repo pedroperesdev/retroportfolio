@@ -12,9 +12,9 @@
                 <h1 class="text-3xl text-purple-200 font-pixel">Click anywhere to begin</h1>
             </div>
             <div class="flex gap-10">
-                <div class="icon-mail blink-hover" @click.stop="$emit('openLink', 'mail')"/>
-                <div class="icon-linkedin blink-hover" @click.stop="$emit('openLink', 'linkedin')"/>
-                <div class="icon-github blink-hover" @click.stop="$emit('openLink', 'github')"/>
+                <div class="icon-mail blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'mail')"/>
+                <div class="icon-linkedin blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'linkedin')"/>
+                <div class="icon-github blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'github')"/>
             </div>
         </div>
     </div>

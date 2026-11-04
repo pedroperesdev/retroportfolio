@@ -2,7 +2,7 @@
   <div class="flex gap-[16px]">
     <Icon 
         icon='file'
-        file-name="prayingpetals" 
+        file-name="prayingpetals.pdf" 
         icon-place="infolder"
         @open-file="(name:OpenableFoldersOrFiles, icon:IconType) => $emit('openFile', name, icon)"
     />

@@ -2,7 +2,7 @@
     <div
         class="flex flex-col border-[4px]" 
         :class="active ? 'border-blue-800 bg-blue-800' : 'border-gray-800 bg-gray-800'"
-        :style="{'width': !maximized ? '440px' : elemW + 'px'}"
+        :style="{'width': !maximized ? '540px' : elemW + 'px'}"
     >
         <div 
             class="flex justify-between items-center px-[12px] bg-blue-800 h-[76px]
@@ -12,9 +12,9 @@
         >
             <h1 class="font-pixel">{{name}}</h1>
             <div class="flex gap-[16px] justify-center items-center">
-                <div :class="active ? 'minimize-button' : 'minimize-button-inactive'" @pointerdown.stop @click.stop="$emit('minimizeWindow')"/>
-                <div :class="active ? 'maximize-button' : 'maximize-button-inactive'" @pointerdown.stop @click.stop="$emit('maximizeWindow')"/>
-                <div :class="active ? 'close-button' : 'close-button-inactive'" @pointerdown.stop @click.stop="$emit('closeWindow')"/>
+                <div :class="active ? 'minimize-button cursor-interact-sprite' : 'minimize-button-inactive'" @pointerdown.stop @click.stop="$emit('minimizeWindow')"/>
+                <div :class="active ? 'maximize-button cursor-interact-sprite' : 'maximize-button-inactive'" @pointerdown.stop @click.stop="$emit('maximizeWindow')"/>
+                <div :class="active ? 'close-button cursor-interact-sprite' : 'close-button-inactive'" @pointerdown.stop @click.stop="$emit('closeWindow')"/>
             </div>
         </div>
         <div 
@@ -39,6 +39,7 @@ import PrayingPetalsContent from '../praying-petals-content.vue';
 import CalculatorContent from '../calculator-content.vue';
 import type { OpenableFoldersOrFiles, IconType } from '~/types/computer.ts';
 import { useWindowSize } from '@vueuse/core'
+import LegauInternshipContent from '../legau-internship-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
 
 let heightMinusNav = computed(() => {
@@ -61,8 +62,13 @@ function resolveName(name: OpenableFoldersOrFiles) {
     const nameMapper = {
         'web projects': WebProjectsContent,
         'game projects': GameProjectsContent,
-        'prayingpetals': PrayingPetalsContent,
-        'calculator': CalculatorContent
+        'prayingpetals.pdf': PrayingPetalsContent,
+        'legau_internship.pdf': LegauInternshipContent,
+        'calculator': CalculatorContent,
+        'minesweeper': null,
+        'photos': null,
+        'Recycle Bin': null,
+        '': null,
     }
     return nameMapper[name];
 }

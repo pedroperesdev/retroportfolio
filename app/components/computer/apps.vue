@@ -18,8 +18,8 @@ import type { AppType, IconType, OpenableFoldersOrFiles } from '../../types/comp
 
 const apps = ref<AppType[]>([
   {icon: 'calculator', fileName: 'calculator'},
-  {icon: 'calculator', fileName: 'calculator'},
-  {icon: 'calculator', fileName: 'calculator'}
+  {icon: 'photos', fileName: 'photos'},
+  {icon: 'minesweeper', fileName: 'minesweeper'}
 ])
 
 </script>

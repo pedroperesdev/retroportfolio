@@ -9,6 +9,7 @@
       :is="screenMapper[currScreen]"
       @done-booting="init"
       @is-desktop="changeToDesktop"
+      @turn-off="turnOff"
     />
   </div>
 </template>
@@ -19,6 +20,7 @@ import Cmd from './cmd.vue';
 import Login from './login.vue';
 import Logo from './logo.vue';
 import Desktop from './desktop.vue';
+import TurnOff from './turnoff.vue';
 import type { Screen } from '~/types/computer.ts';
 
 const currScreen = ref<Screen>('cmd')
@@ -28,6 +30,7 @@ const screenMapper = {
   'booting': Logo,
   'login': Login,
   'desktop': Desktop,
+  'turnoff': TurnOff,
   'none' : null
 }
 
@@ -55,6 +58,11 @@ function init() {
 function changeToDesktop() {
   useSound('click-sound');
   currScreen.value = 'desktop'
+}
+
+function turnOff() {
+  //useSound('turnoff-sound');
+  currScreen.value = 'turnoff'
 }
 
 </script>

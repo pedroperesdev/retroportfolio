@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex justify-end">
+                    <div class="flex justify-end cursor-interact-sprite">
                         <Button text="OK" @isDesktop="$emit('isDesktop')"/>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="console" :class="hover">
+  <div class="console cursor-interact-sprite" :class="hover" @click="$emit('openConsoleDialogue')">
     
   </div>
 </template>
@@ -14,6 +14,11 @@ const hover = computed(() => props.canInteract ? "console-hover" : null)
 </script>
 
 <style scoped>
+
+.cursor-interact-sprite {
+  cursor: url('sprites/cursor_interact.png') 15 5, auto;
+}
+
 .console {
     width: 88px;
     height: 52px;

@@ -11,6 +11,7 @@
 import Menu from '~/components/menu/menu.vue';
 import Select from '~/components/select/select.vue';
 import Game from '~/components/game/game.vue';
+import Prayingpetalsgame from '~/components/prayingpetalsgame/prayingpetalsgame.vue';
 import Computer from '~/components/computer/computer.vue';
 import { useSound } from '../composables/useSound.ts'
 import type { GameState } from '~/types/start.ts';
@@ -20,6 +21,7 @@ const screens = {
   "menu": Menu,
   "select": Select,
   "game": Game,
+  "console": Prayingpetalsgame,
   "computer": Computer,
 }
 const activeScreen = computed(() => currState.value ? screens[currState.value] : null);
@@ -59,7 +61,7 @@ function openLink(target:string) {
 <style>
 
 .cursor-sprite {
-  cursor: url('sprites/cursor.png') 15 5, auto;
+  cursor: url('sprites/cursor_normal.png') 15 5, auto;
 }
 
 </style>

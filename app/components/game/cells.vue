@@ -27,6 +27,8 @@ function getPos(cell:number){
 }
 
 const forbiddenCells = [1, 2, 3, 4, 5, 6, 7, 8, 38, 39, 40, 46, 47, 48]
+
+
 const clickableCells = Array.from({ length:48 }, (v, i) => i + 1).filter(n => !forbiddenCells.includes(n))
 
 </script>

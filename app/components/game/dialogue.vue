@@ -3,9 +3,9 @@
     <div class="text-2xl font-bold font-pixel p-[32px]">
         {{currText}}
     </div>
-    <div v-if="buttonsVisible" class="button-yes absolute top-[116px] left-[360px]" @click="$emit('openComputer')">
+    <div v-if="buttonsVisible" class="button-yes cursor-interact-sprite absolute top-[116px] left-[360px]" @click="item === 'pc' ? $emit('openComputer') : $emit('openConsole')">
     </div>
-    <div v-if="buttonsVisible" class="button-no absolute top-[116px] left-[480px]" @click="closeDialogue">
+    <div v-if="buttonsVisible" class="button-no cursor-interact-sprite absolute top-[116px] left-[480px]" @click="closeDialogue">
     </div>
   </div>
 </template>
@@ -19,11 +19,11 @@ const props = withDefaults(defineProps<{
     item: "pc"
 })
 
-const emit = defineEmits(['closeDialogue', 'openComputer'])
+const emit = defineEmits(['closeDialogue', 'openComputer', 'openConsole'])
 
 const currText = ref("");
 const pcText = "You booted up the PC. Do you wish to navigate my projects/past experience?"
-const consoleText = "You booted up the PC. Do you wish to play my games?"
+const consoleText = "You booted up the console. Do you wish to play PrayingPetals?"
 const typeDelay = 25
 
 let letterCount = 0;

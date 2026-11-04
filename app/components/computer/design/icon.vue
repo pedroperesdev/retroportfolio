@@ -1,7 +1,7 @@
 <template>
     <div 
         :class="variant.wrapperClass"
-        class="flex flex-col justify-center items-center"
+        class="flex flex-col justify-center items-center cursor-interact-sprite"
         :style="{ 'background-color': (props.active) ? 'var(--color-blue-800)' : '' }"
         @click="variant.emitAction"
     >
@@ -9,7 +9,7 @@
             :class="variant.iconClass"
             :style="{ '--icon-url': `url(${computeIconUrl()})` }"
         />
-        <h2 v-if="variant.textType" :class="variant.textType">{{ shortenTxt(fileName) }}</h2>
+        <h2 v-if="variant.textType" :class="variant.textType">{{ shorten? shortenTxt(fileName) : fileName }}</h2>
     </div>
 </template>
 
@@ -20,13 +20,14 @@ const props = withDefaults(defineProps<{
     icon?: IconType,
     fileName?: OpenableFoldersOrFiles,
     iconPlace?: IconPlace,
-    active?: boolean
+    active?: boolean,
+    shorten?: boolean
 }>(), {
     icon: 'folder',
     fileName: '',
     iconPlace: 'navbar',
     active: false,
-
+    shorten: true
 })
 
 const emit = defineEmits(['addNewWindow', 'changeTabState', 'openFile'])

@@ -1,5 +1,5 @@
 <template>
-  <div class="pc" :class="hover" @click="openPcDialogue">
+  <div class="pc cursor-interact-sprite" :class="hover" @click="openPcDialogue">
     
   </div>
 </template>
@@ -19,6 +19,11 @@ function openPcDialogue() {
 </script>
 
 <style scoped>
+
+.cursor-interact-sprite {
+  cursor: url('sprites/cursor_interact.png') 15 5, auto;
+}
+
 .pc {
     width: 104px;
     height: 100px;

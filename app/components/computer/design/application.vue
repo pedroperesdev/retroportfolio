@@ -1,6 +1,6 @@
 <template>
     <div      
-        class="flex items-center justify-start text-black hover:bg-blue-800 hover:text-white p-[8px]"
+        class="flex items-center justify-start cursor-interact-sprite text-black hover:bg-blue-800 hover:text-white p-[8px]"
         @click="$emit('openApp', fileName, icon)"
     >
         <Icon 
@@ -34,7 +34,6 @@ function capitalize(word: string) {
 
 <style scoped>
 @reference "tailwindcss";
-
 
 h2 {
   @apply text-2xl

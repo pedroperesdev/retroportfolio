@@ -18,9 +18,10 @@
       @close-window="closeWindow(window.id)"
       @open-file="openFile"
     />
-    <div class="flex flex-col gap-[4px] p-[24px] w-full h-[400px]">
-      <Icon icon="folder" file-name="web projects" icon-place="desktop" @add-new-window="addNewWindow"/>
-      <Icon icon="folder" file-name="game projects" icon-place="desktop" @add-new-window="addNewWindow"/>
+    <div class="flex flex-col flex-wrap gap-[8px] p-[24px] w-full">
+      <Icon icon="recyclebin" file-name="Recycle Bin" :shorten="false" icon-place="desktop" @add-new-window="addNewWindow"/>
+      <Icon icon="folder" file-name="web projects" :shorten="false" icon-place="desktop" @add-new-window="addNewWindow"/>
+      <Icon icon="folder" file-name="game projects" :shorten="false" icon-place="desktop" @add-new-window="addNewWindow"/>
     </div>
     <div class="absolute bottom-0 w-full">
       <Navbar 
@@ -37,6 +38,7 @@
         ref="navbarElem"
         @hover-apps="hoverApps"
         @unhover-apps="unhoverApps"
+        @turnoff="turnoffPc"
         @click.stop
       />
     </div>
@@ -70,6 +72,7 @@ onMounted(() => {
   useSound('computer-boot');
 })
 
+const emit = defineEmits(['turnOff']);
 const startbar = ref(false);
 const hoveringApps = ref(false);
 const insideApps = ref(false);
@@ -107,6 +110,10 @@ function unhoverApps() {
     if(!insideApps.value)
       hoveringApps.value = false;
   }, 100);
+}
+
+function turnoffPc() {
+  emit('turnOff');
 }
 
 function addNewWindow(name: string, icon: IconType) {
