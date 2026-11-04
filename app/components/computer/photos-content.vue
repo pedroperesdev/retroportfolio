@@ -5,7 +5,7 @@
             <h1 class="font-pixel">{{getNameFromPath(imageSrc)}}</h1>
         </div>
         <div class="flex flex-col overflow-hidden shrink-0 gap-[12px] w-full bg-white border-blue-600 border-[4px]">
-            <div class="flex overflow-auto h-20 gap-[32px] p-[4px]">
+            <div class="flex overflow-auto h-15 gap-[32px] p-[4px]">
                 <NuxtImg src="/images/gallery/spike.jpeg" loading="lazy" @click="changeCurrImgSrc('/images/gallery/spike.jpeg')" class="cursor-interact-sprite border-blue-600 border-[4px]"/>
                 <NuxtImg src="/images/gallery/sevilha.jpeg" loading="lazy" @click="changeCurrImgSrc('/images/gallery/sevilha.jpeg')" class="cursor-interact-sprite border-blue-600 border-[4px]"/>
                 <NuxtImg src="/images/gallery/donuts.jpeg" loading="lazy" @click="changeCurrImgSrc('/images/gallery/donuts.jpeg')" class="cursor-interact-sprite border-blue-600 border-[4px]"/>

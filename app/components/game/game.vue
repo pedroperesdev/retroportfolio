@@ -8,6 +8,7 @@
         >
             <Carpet class="absolute z-1 top-[200px] left-[68px]"/>
             <Bed class="absolute z-1 top-[448px] left-[384px]"/>
+            <Dog class="absolute z-3 top-[440px] left-[400px]"/>
             <Desk class="absolute z-1 top-[160px] left-[268px]"/>
             <Shelf class="absolute z-1 top-[116px] left-[464px]"/>
             <Pc :canInteract="!interactingWith" class="absolute z-3 top-[120px] left-[284px]" @open-pc-dialogue="openPcDialogue"/>
@@ -40,6 +41,7 @@ import Player from './player.vue';
 import Dialogue from './dialogue.vue';
 import { useSound } from '../../composables/useSound.ts'
 import type { ItemsWithDialogue } from '~/types/game.ts';
+import Dog from './dog.vue';
 const { width, height } = useWindowSize()
 
 const emit = defineEmits(['changeWindow'])

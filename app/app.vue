@@ -6,6 +6,7 @@
     <audio id="initial-beep" src="/audio/initial_beep.wav"/>
     <audio id="desktop-sound" src="/audio/desktop_sound.wav"/>
     <audio id="bubbles-sound" src="/audio/bubbles.wav"/>
+    <audio id="dog-sound" src="/audio/dog.wav"/>
     <NuxtPage/>
   </div>
 </template>
