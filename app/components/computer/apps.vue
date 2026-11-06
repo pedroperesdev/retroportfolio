@@ -17,9 +17,9 @@ import Application from './design/application.vue';
 import type { AppType, IconType, OpenableFoldersOrFiles } from '../../types/computer.ts';
 
 const apps = ref<AppType[]>([
-  {icon: 'calculator', fileName: 'calculator'},
-  {icon: 'photos', fileName: 'photos'},
-  {icon: 'minesweeper', fileName: 'minesweeper'}
+  {icon: 'calculator', fileName: 'Calculator'},
+  {icon: 'photos', fileName: 'Photos'},
+  {icon: 'minesweeper', fileName: 'Minesweeper'}
 ])
 
 </script>

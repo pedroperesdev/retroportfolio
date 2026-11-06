@@ -2,7 +2,7 @@
     <div
         class="flex flex-col border-[4px]" 
         :class="active ? 'border-blue-800 bg-blue-800' : 'border-gray-800 bg-gray-800'"
-        :style="{'width': !maximized ? '540px' : elemW + 'px'}"
+        :style="{'width': maximized ? elemW + 'px' : canMaximize ? '540px' : '430px'}"
     >
         <div 
             class="flex justify-between items-center px-[12px] bg-blue-800 h-[76px]
@@ -13,7 +13,7 @@
             <h1 class="font-pixel">{{name}}</h1>
             <div class="flex gap-[16px] justify-center items-center">
                 <div :class="active ? 'minimize-button cursor-interact-sprite' : 'minimize-button-inactive'" @pointerdown.stop @click.stop="$emit('minimizeWindow')"/>
-                <div :class="active ? 'maximize-button cursor-interact-sprite' : 'maximize-button-inactive'" @pointerdown.stop @click.stop="$emit('maximizeWindow')"/>
+                <div v-if="canMaximize" :class="active ? 'maximize-button cursor-interact-sprite' : 'maximize-button-inactive'" @pointerdown.stop @click.stop="$emit('maximizeWindow')"/>
                 <div :class="active ? 'close-button cursor-interact-sprite' : 'close-button-inactive'" @pointerdown.stop @click.stop="$emit('closeWindow')"/>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div 
                 class="flex flex-col gap-[20px] bg-gray-200 border-[4px] px-[24px] py-[16px]" 
                 :class="active ? 'border-blue-600' : 'border-gray-600'"
-                :style="{'height': !maximized ? '400px' : heightMinusNav + 'px'}"
+                :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '400px' : '480px'}"
             >
                 <component :is="resolveName(props.name)" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
             </div>
@@ -41,6 +41,7 @@ import type { OpenableFoldersOrFiles, IconType } from '~/types/computer.ts';
 import { useWindowSize } from '@vueuse/core'
 import LegauInternshipContent from '../legau-internship-content.vue';
 import PhotosContent from '../photos-content.vue';
+import MinesweeperContent from '../minesweeper-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
 
 let heightMinusNav = computed(() => {
@@ -51,10 +52,12 @@ let heightMinusNav = computed(() => {
 const props = withDefaults(defineProps<{
     name?: OpenableFoldersOrFiles,
     maximized?: boolean,
+    canMaximize?: boolean,
     active?: boolean
 }>(), {
     name: 'web projects',
     maximized: false,
+    canMaximize: true,
     active: false,
 })
 
@@ -65,9 +68,9 @@ function resolveName(name: OpenableFoldersOrFiles) {
         'game projects': GameProjectsContent,
         'prayingpetals.pdf': PrayingPetalsContent,
         'legau_internship.pdf': LegauInternshipContent,
-        'calculator': CalculatorContent,
-        'minesweeper': null,
-        'photos': PhotosContent,
+        'Calculator': CalculatorContent,
+        'Minesweeper': MinesweeperContent,
+        'Photos': PhotosContent,
         'Recycle Bin': null,
         '': null,
     }

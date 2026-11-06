@@ -35,7 +35,6 @@ const screenMapper = {
 }
 
 onMounted(() => {
-  useSound('initial-beep');
   currScreen.value = 'cmd';
 })
 
@@ -51,12 +50,12 @@ function init() {
   }, 2000)
   setTimeout(() => {
     currScreen.value = 'login'
-    useSound('click-sound');
+    useSound('click-pc');
   }, 8000)
 }
 
 function changeToDesktop() {
-  useSound('click-sound');
+  useSound('click-pc');
   currScreen.value = 'desktop'
 }
 

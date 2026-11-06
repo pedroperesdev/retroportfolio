@@ -12,6 +12,7 @@
       :name="window.name"
       :active="openedWindows.find(w => w.z == 4)?.id === window.id" 
       :maximized="window.status === 'maximized'"
+      :can-maximize="window.canMax"
       @start-drag="(e: PointerEvent) => startDrag(e, window.id)"
       @minimize-window="minimizeWindow(window.id)"
       @maximize-window="maximizeWindow(window.id)"
@@ -70,6 +71,7 @@ const { width:elemW, height:elemH } = useElementSize(windowElement);
 
 onMounted(() => {
   useSound('computer-boot');
+  stopSound('main-music');
 })
 
 const emit = defineEmits(['turnOff']);
@@ -118,9 +120,9 @@ function turnoffPc() {
 
 function addNewWindow(name: string, icon: IconType) {
   if(openedWindows.value.length >= 4 || openedWindows.value.find(w => w.name == name)) return;
-  useSound('click-sound');
   openedWindows.value.map(w => w.z -= 1)
-  let window = { id: id++, x: 100, y: 100, z: 4, name: name, icon: icon, status: 'normal'} as WindowState;
+  let window = { id: id++, x: 100, y: 100, z: 4, name: name, icon: icon, canMax: true, status: 'normal'} as WindowState;
+  if(window.name === 'Minesweeper') window.canMax = false;
   openedWindows.value.push(window);
 }
 
@@ -142,7 +144,7 @@ function makeSelectedWindowCurrent(windowId: number) {
 }
 
 function maximizeWindow(windowId: number) {
-  useSound('click-sound');
+  useSound('click-pc');
   if(!makeSelectedWindowCurrent(windowId)) return;
   currWindow.value!.x = 0;
   currWindow.value!.y = 0;
@@ -151,7 +153,7 @@ function maximizeWindow(windowId: number) {
 }
 
 function minimizeWindow(windowId: number) {
-  useSound('click-sound');
+  useSound('click-pc');
   if(!makeSelectedWindowCurrent(windowId)) return;
   const temp = openedWindows.value.find(w => w.id === windowId);
   if(!temp) return;
@@ -161,7 +163,7 @@ function minimizeWindow(windowId: number) {
 }
 
 function closeWindow(windowId: number) {
-  useSound('click-sound');
+  useSound('click-pc');
   if(!makeSelectedWindowCurrent(windowId)) return;
   openedWindows.value.map(w => w.z += 1)
   openedWindows.value = openedWindows.value.filter(win => win.id != windowId);
@@ -169,19 +171,19 @@ function closeWindow(windowId: number) {
 
 function openMinimized(windowId: number) {
   //can be minimized or just open but in background
-  useSound('click-sound');
+  useSound('click-pc');
   if(!makeSelectedWindowCurrent(windowId)) return;
   const temp = openedWindows.value.find(w => w.id === windowId)
   if(temp) temp.status = 'normal'
 }
 
 function openStartbar() {
-  useSound('click-sound');
+  useSound('click-pc');
   startbar.value = true;
 }
 
 function closeStartbar() {
-  useSound('click-sound');
+  useSound('click-pc');
   startbar.value = false;
 }
 

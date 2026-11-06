@@ -8,7 +8,7 @@
         >
             <Carpet class="absolute z-1 top-[200px] left-[68px]"/>
             <Bed class="absolute z-1 top-[448px] left-[384px]"/>
-            <Dog class="absolute z-3 top-[440px] left-[400px]"/>
+            <Dog class="absolute z-5 top-[440px] left-[400px]"/>
             <Desk class="absolute z-1 top-[160px] left-[268px]"/>
             <Shelf class="absolute z-1 top-[116px] left-[464px]"/>
             <Pc :canInteract="!interactingWith" class="absolute z-3 top-[120px] left-[284px]" @open-pc-dialogue="openPcDialogue"/>
@@ -18,7 +18,7 @@
             <Dialogue 
               v-if="interactingWith != null" 
               :item="interactingWith" 
-              class="absolute z-4 top-[416px] left-[16px]"
+              class="absolute z-6 top-[416px] left-[16px]"
               @close-dialogue="closeDialogue"
               @open-computer="openComputer"
               @open-console="openConsole"
@@ -83,14 +83,12 @@ function closeDialogue() {
 
 function openComputer() {
   interactingWith.value = null;  
-  useSound('click-sound');
   emit('changeWindow', 'computer')
   stopSound('main-music');
 }
 
 function openConsole() {
   interactingWith.value = null;  
-  useSound('click-sound');
   emit('changeWindow', 'console')
   stopSound('main-music');
 }

@@ -10,7 +10,6 @@
 <script lang="ts" setup>
 import { useSound } from '../../composables/useSound.ts';
 
-
 const showingHeart = ref<boolean>(false)
 
 function showHeart(){

@@ -82,13 +82,7 @@ const { width, height } = useWindowSize()
 }
 
 .stripes {
-    background-color: rgba(0, 0, 0, 0.5);
-    background: repeating-linear-gradient(
-        #3D5A99,
-        #3D5A99 4px,
-        #6B3D8C 4px,
-        #6B3D8C 8px
-    );
+    background: repeating-linear-gradient(#E07A48, #E07A48 4px, #C24E4E 4px, #C24E4E 8px);
 }
 
 .main-content {
