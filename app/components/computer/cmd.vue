@@ -2,7 +2,7 @@
   <div class="flex flex-col h-screen bg-black p-10 font-pixel gap-16" @click="clickToContinue ? triggerEmit() : {}">
     <h1>{{ currText }}</h1>
     <div v-if="clickToContinue">
-      <h2>> {{ $t('computer.message') }} <</h2>
+      <h2>> {{ $t('computer.boot.message') }} <</h2>
     </div>
   </div>
 </template>

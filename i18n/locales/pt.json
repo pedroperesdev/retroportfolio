@@ -17,14 +17,51 @@
             "line3": "...A inicializar os serviços do sistema...[OK]\n",
             "line4": "...A detetar o hardware...[OK]\n",
             "line5": "...A inicializar os gráficos...[OK]\n",
-            "line6": "...A iniciar o Ambiente de Trabalho do OceanOS...[OK]\n"
+            "line6": "...A iniciar o Ambiente de Trabalho do OceanOS...[OK]\n",
+            "message" : "Clica para continuar"
         },
         "login": {
             "title": "Bem-vindo ao OceanOS",
             "instructions": "Introduz o teu nome de utilizador e palavra-passe para iniciar sessão no sistema.",
             "username": "Utilizador",
-            "password": "Palavra-passe",
+            "password": "Password",
             "guest": "Convidado"
+        },
+        "desktop": {
+            "start": "Iniciar",
+            "apps": "Aplicações",
+            "recycle-bin": "Reciclagem",
+            "web-projects": "projetos web",
+            "game-projects": "projetos de jogos",
+            "calculator": "Calculadora",
+            "photos": "Fotos",
+            "minesweeper": "Minesweeper",
+            "notes": "Notas",
+            "shutdown": "Encerrar..."
+        },
+        "shutdown": {
+            "line1": "A encerrar...",
+            "line2": "Faz refresh ou prime a tecla F5"
+        },
+        "projects": {
+            "labels": {
+                "skills": "Competências utilizadas:",
+                "description": "Descrição:"
+            },
+            "prayingpetals": {
+                "skills": "C#, Unity, Game Design, Gestão de Estado, Animação, Prototipagem",
+                "award": "[★] 2.º lugar · 2D GAME JAM #REBORN · junho de 2026",
+                "description": "Praying Petals é um pequeno jogo de terror 2D desenvolvido em Unity numa semana, que combina uma acolhedora loja de flores com elementos de terror perturbadores. O jogador assume o papel de um louva-a-deus que atende clientes, apara flores (através de um minijogo) e se esconde de ameaças, sendo, em segredo, o próprio parasita. O jogo foi construído em torno dos temas da jam, {theme1} e {theme2}, usando o contraste entre um ambiente tranquilo e momentos súbitos de tensão para criar uma atmosfera inquietante. Foi desenvolvido como um projeto curto de game jam, com foco em prototipar rapidamente e entregar uma experiência jogável completa.",
+                "theme1": "Invisibility",
+                "theme2": "You Are the Enemy"
+            },
+            "legau": {
+                "skills": "Nuxt, Vue.js, TypeScript, Tailwind CSS, Laravel, PHP, MySQL, REST APIs, MVC, Autenticação por Token, Middleware de Rotas, Docker, Git, Scrum",
+                "p1": "O Legau Client Portal é uma consola de administração web que desenvolvi durante o meu estágio na Legau, uma startup portuguesa que cria uma plataforma de redação jurídica com IA para escritórios de advogados. Até então, as organizações clientes não tinham forma de gerir as suas próprias contas. O portal dá aos administradores de cada organização um único sítio para gerir utilizadores e grupos, controlar permissões e acompanhar a forma como a equipa usa a plataforma.",
+                "p2": "No frontend, construí a interface com Nuxt, Vue e TypeScript, usando componentes reutilizáveis do design system. Implementei autenticação por token e um middleware de rotas em Nuxt que verifica o estado da sessão, guardado com useState, antes de cada navegação, para que as páginas protegidas só sejam acessíveis a utilizadores autenticados e os restantes sejam redirecionados para o login.",
+                "p3": "No backend, desenvolvi uma REST API em Laravel com uma arquitetura em camadas Controller–Service–Model, uma variante do MVC adequada a APIs. Os controllers tratam os pedidos e respostas HTTP, os services contêm a lógica de negócio e os modelos Eloquent funcionam como camada ORM que mapeia as tabelas da base de dados. As funcionalidades incluíram a gestão de utilizadores (listagem com pesquisa, filtros e paginação, além de criação, edição e desativação), a gestão de grupos com atribuição de membros, um fluxo de recuperação de palavra-passe com e-mails traduzidos e os endpoints das páginas de estatísticas de utilização.",                
+                "p4": "O trabalho foi feito remotamente numa equipa pequena, com Scrum, as tarefas geridas no ClickUp e o código alojado no Bitbucket. Cada funcionalidade foi desenvolvida no seu próprio branch e passou por revisão de código antes do merge."
+            }
         }
     }
 }

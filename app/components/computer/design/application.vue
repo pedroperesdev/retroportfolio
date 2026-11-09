@@ -8,26 +8,30 @@
             :file-name="fileName"
             :icon-place="iconPlace"
         />
-        <h2 class="font-pixel">{{ capitalize(fileName) }}</h2>
+        <h2 class="font-pixel">{{ translateFileName(fileName) }}</h2>
     </div>
 </template>
 
 <script lang="ts" setup>
 import Icon from './icon.vue';
 import type { IconType, OpenableFoldersOrFiles } from '~/types/computer.ts';
+const { t, te } = useI18n()
 
 const iconPlace = "startbar"
+
 
 const props = withDefaults(defineProps<{
     icon?: IconType,
     fileName?: OpenableFoldersOrFiles
 }>(), {
     icon: 'file',
-    fileName: 'calculator'
+    fileName: 'Calculator'
 })
 
-function capitalize(word: string) {
-    return (word[0]?.toUpperCase() + word.slice(1));
+function translateFileName(fname: OpenableFoldersOrFiles) : string {
+    //need to swap whitespace for hyphen and make it lowercase
+    const name = fname.replaceAll(' ', '-').toLowerCase();
+    return te('computer.desktop.' + name) ? t('computer.desktop.' + name) : fname
 }
 
 </script>

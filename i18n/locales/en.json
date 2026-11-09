@@ -17,7 +17,8 @@
             "line3": "...Initializing system services...[OK]\n",
             "line4": "...Detecting hardware...[OK]\n",
             "line5": "...Initializing graphics...[OK]\n",
-            "line6": "...Starting OceanOS Desktop...[OK]\n"
+            "line6": "...Starting OceanOS Desktop...[OK]\n",
+            "message" : "Click to continue"
         },
         "login": {
             "title": "Welcome to OceanOS",
@@ -25,6 +26,42 @@
             "username": "Username",
             "password": "Password",
             "guest": "Guest"
+        },
+        "desktop": {
+            "start": "Start",
+            "apps": "Apps",
+            "recycle-bin": "Recycle Bin",
+            "web-projects": "web projects",
+            "game-projects": "game projects",
+            "calculator": "Calculator",
+            "photos": "Photos",
+            "minesweeper": "Minesweeper",
+            "notes": "Notas",
+            "shutdown": "Shutdown..."
+        },
+        "shutdown": {
+            "line1": "Turning off...",
+            "line2": "Please refresh the page or press F5"
+        },
+        "projects": {
+            "labels": {
+                "skills": "Skills used:",
+                "description": "Description:"
+            },
+            "prayingpetals": {
+                "skills": "C#, Unity, Game Design, State Management, Animation, Prototyping",
+                "award": "[★] 2nd place · 2D GAME JAM #REBORN · June 2026",
+                "description": "Praying Petals is a small 2D horror game developed in Unity in one week, combining a cozy flower shop with unsettling horror elements. The player takes on the role of a mantis shopkeeper, serving customers, trimming flowers (through a minigame), and hiding from threats, all while secretly being the parasite. The game was built around the jam themes {theme1} and {theme2}, using the contrast between a peaceful environment and sudden moments of tension to create an unsettling atmosphere. It was developed as a short game jam project, with a focus on quickly prototyping and delivering a complete playable experience.",
+                "theme1": "Invisibility",
+                "theme2": "You Are the Enemy"
+            },
+            "legau": {
+                "skills": "Nuxt, Vue.js, TypeScript, Tailwind CSS, Laravel, PHP, MySQL, REST APIs, MVC, Token Authentication, Route Middleware, Docker, Git, Scrum",
+                "p1": "The Legau Client Portal is a web administration console I built during my internship at Legau, a Portuguese startup developing an AI-powered legal drafting platform for law firms. Until then, client organizations had no way to manage their own accounts. The portal gives each organization's administrators a single place to manage users and groups, control permissions and follow how their team uses the platform.",
+                "p2": "On the frontend, I built the interface with Nuxt, Vue and TypeScript, using reusable design-system components. I implemented token-based authentication and Nuxt route middleware that checks the session state, stored with useState, before every navigation, so protected pages are only reachable by authenticated users and everyone else is redirected to the login page.",
+                "p3": "On the backend, I developed a Laravel REST API using a layered Controller–Service–Model architecture, a variant of MVC suited to APIs. Controllers handle the HTTP requests and responses, services contain the business logic, and Eloquent models act as the ORM layer that maps the database tables. Features included user management (listing with search, filters and pagination, plus creating, editing and deactivating users), group management with member assignment, a password reset flow with localized emails, and the endpoints behind the usage analytics pages.",
+                "p4": "The work was done remotely in a small team using Scrum, with tasks tracked in ClickUp and code hosted on Bitbucket. Every feature was developed on its own branch and went through code review before being merged."
+            }
         }
     }
 }

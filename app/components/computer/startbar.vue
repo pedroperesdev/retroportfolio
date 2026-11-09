@@ -15,14 +15,14 @@
                 icon="apps"
                 icon-place="startbar"
             />
-            <h2 class="font-pixel">Apps</h2>
+            <h2 class="font-pixel"> {{ $t('computer.desktop.apps') }}</h2>
             <div class="w-full flex justify-end">
               <h2 class="font-pixel">></h2>
             </div>
           </div>
           <div class="flex h-full flex-col justify-end">
             <div class="flex cursor-interact-sprite text-black hover:bg-blue-800 hover:text-white p-[12px] border-t-[2px]">
-              <h2 class="font-pixel" @click="$emit('turnoff')">Turn off...</h2>
+              <h2 class="font-pixel" @click="$emit('turnoff')">{{ $t('computer.desktop.shutdown') }}</h2>
             </div>
           </div>
         </div>

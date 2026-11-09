@@ -1,8 +1,10 @@
 <template>
   <div class="flex h-[60px] navbar-apps border-t-[4px] border-t-blue-800 w-full">
-    <div class="w-[140px] -mt-[4px]" :class="props.clicked ? 'navbar-start-clicked' : 'navbar-start'" @click.stop="$emit('openStartbar')">
-        <h1 class="font-jersey text-white absolute z-2 top-1 left-[24px]">start</h1>
-        <h1 class="font-jersey text-black absolute z-1 top-1 left-[22px]">start</h1>
+    <div class="flex justify-center w-[140px] -mt-[4px]" :class="props.clicked ? 'navbar-start-clicked' : 'navbar-start'" @click.stop="$emit('openStartbar')">
+        <div class="relative">
+            <h1 class="font-jersey text-black">{{ $t('computer.desktop.start')}}</h1>
+            <h1 class="font-jersey text-white absolute top-[1px] left-[3px]">{{ $t('computer.desktop.start')}}</h1>
+        </div>
     </div>
     <div class="flex items-center gap-[12px]">
         <Icon

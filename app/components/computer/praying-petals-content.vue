@@ -5,25 +5,16 @@
     </div>
     <NuxtLink href="https://rovkin.itch.io/prayingpetals" target="_blank" class="font-pixel cursor-interact-sprite w-fit">https://rovkin.itch.io/prayingpetals</NuxtLink>
     <div class="flex flex-col">
-        <h1 class="font-pixel bg-gray-400">Skills used:</h1>
-        <h2 class="font-pixel bg-gray-300">C#, Unity, Game Design, State Management, Animation, Prototyping</h2>
+        <h1 class="font-pixel bg-gray-400">{{ $t('computer.projects.labels.skills') }}</h1>
+        <h2 class="font-pixel bg-gray-300">{{ $t('computer.projects.prayingpetals.skills') }}</h2>
     </div>
     <div class="flex flex-col">
-        <h1 class="font-pixel bg-gray-400">Description:</h1>
+        <h1 class="font-pixel bg-gray-400">{{ $t('computer.projects.labels.description') }}</h1>
     <p class="font-pixel bg-blue-600 inline-block px-2 py-1">
-        [★] 2nd place · 2D GAME JAM #REBORN · June 2026
+        {{ $t('computer.projects.prayingpetals.award') }}
     </p>
     <h2 class="font-pixel bg-gray-300">
-        Praying Petals is a small 2D horror game developed in Unity in one week,
-        combining a cozy flower shop with unsettling horror elements.
-        The player takes on the role of a mantis shopkeeper, serving customers,
-        trimming flowers (through a minigame), and hiding from threats, all
-        while secretly being the parasite. The game was built around the
-        jam themes <strong>Invisibility</strong> and <strong>You Are the Enemy</strong>,
-        using the contrast between a peaceful environment and sudden moments
-        of tension to create an unsettling atmosphere. It was developed as a
-        short game jam project, with a focus on quickly prototyping and
-        delivering a complete playable experience.
+        {{ $t('computer.projects.prayingpetals.description') }}
     </h2>
     </div>
     <div class="flex flex-col">

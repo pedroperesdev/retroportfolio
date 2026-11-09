@@ -9,12 +9,13 @@
             :class="variant.iconClass"
             :style="{ '--icon-url': `url(${computeIconUrl()})` }"
         />
-        <h2 v-if="variant.textType" :class="variant.textType">{{ shorten? shortenTxt(fileName) : fileName }}</h2>
+        <h2 v-if="variant.textType" :class="variant.textType">{{ shorten? shortenTxt(translateFileName(fileName)) : translateFileName(fileName) }}</h2>
     </div>
 </template>
 
 <script lang="ts" setup>
 import type { IconType, IconPlace, OpenableFoldersOrFiles } from '~/types/computer.ts';
+const { t, te } = useI18n()
 
 const props = withDefaults(defineProps<{
     icon?: IconType,
@@ -29,6 +30,12 @@ const props = withDefaults(defineProps<{
     active: false,
     shorten: true
 })
+
+function translateFileName(fname: OpenableFoldersOrFiles) : string {
+    //need to swap whitespace for hyphen and make it lowercase
+    const name = fname.replaceAll(' ', '-').toLowerCase();
+    return te('computer.desktop.' + name) ? t('computer.desktop.' + name) : fname
+}
 
 const emit = defineEmits(['addNewWindow', 'changeTabState', 'openFile'])
 
@@ -59,7 +66,7 @@ const propMapper = {
     },
 }
 
-function shortenTxt(fileName: OpenableFoldersOrFiles) {
+function shortenTxt(fileName: string) {
     if(fileName.toString().length < 8) return fileName.toString()
     else return `${fileName.toString().slice(0,8)}...`
 }

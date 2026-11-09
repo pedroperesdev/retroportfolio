@@ -10,13 +10,13 @@
                         <h2 class="font-pixel">{{ $t('computer.login.instructions') }}</h2>
                     </div>
                     <div class="flex gap-[28px]">
-                        <div class="user-sprite bg-white border-b-gray-300 border-r-gray-300 border-t-gray-600 border-l-gray-600 border-[4px]"/>
-                        <div class="flex flex-col justify-center items-end gap-[12px]">
-                            <div class="flex gap-[16px]">
+                        <div class="user-sprite shrink-0 bg-white border-b-gray-300 border-r-gray-300 border-t-gray-600 border-l-gray-600 border-[4px]"/>
+                        <div class="flex flex-col justify-center gap-[12px]">
+                            <div class="flex gap-[16px] justify-end">
                                 <h2 class="font-pixel font-bold">{{ $t('computer.login.username') }}</h2>
                                 <input type="text" :value="t('computer.login.guest')" class="max-w-[160px] px-[8px] border-[1.5px] bg-white hover:bg-gray-300 font-pixel text-xl" readonly/>
                             </div>
-                            <div class="flex gap-[16px]">
+                            <div class="flex gap-[16px] justify-end">
                                 <h2 class="font-pixel font-bold">{{ $t('computer.login.password') }}</h2>
                                 <input type="password" class="max-w-[160px] px-[8px] border-[1.5px] bg-white hover:bg-gray-300 font-pixel text-xl"/>
                             </div>

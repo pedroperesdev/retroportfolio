@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-screen bg-black p-10 font-pixel gap-16 justify-center items-center">
-    <h1>Turning off...</h1>
-    <h1>Please refresh the page or press F5</h1>
+    <h1>{{ $t('computer.shutdown.line1') }}</h1>
+    <h1>{{ $t('computer.shutdown.line2') }}</h1>
   </div>
 </template>
 

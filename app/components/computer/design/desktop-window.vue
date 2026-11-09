@@ -10,7 +10,7 @@
             :class="active ? 'bg-blue-800 border-t-blue-400 border-l-blue-400 border-r-blue-400' : 'bg-gray-800 border-t-gray-400 border-l-gray-400 border-r-gray-400'"
             @pointerdown.stop="$emit('startDrag', $event)"
         >
-            <h1 class="font-pixel">{{name}}</h1>
+            <h1 class="font-pixel">{{translateFileName(name)}}</h1>
             <div class="flex gap-[16px] justify-center items-center">
                 <div :class="active ? 'minimize-button cursor-interact-sprite' : 'minimize-button-inactive'" @pointerdown.stop @click.stop="$emit('minimizeWindow')"/>
                 <div v-if="canMaximize" :class="active ? 'maximize-button cursor-interact-sprite' : 'maximize-button-inactive'" @pointerdown.stop @click.stop="$emit('maximizeWindow')"/>
@@ -43,6 +43,8 @@ import LegauInternshipContent from '../legau-internship-content.vue';
 import PhotosContent from '../photos-content.vue';
 import MinesweeperContent from '../minesweeper-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
+const { t, te } = useI18n()
+
 
 let heightMinusNav = computed(() => {
     return elemH.value - 144
@@ -60,6 +62,12 @@ const props = withDefaults(defineProps<{
     canMaximize: true,
     active: false,
 })
+
+function translateFileName(fname: OpenableFoldersOrFiles) : string {
+    //need to swap whitespace for hyphen and make it lowercase
+    const name = fname.replaceAll(' ', '-').toLowerCase();
+    return te('computer.desktop.' + name) ? t('computer.desktop.' + name) : fname
+}
 
 
 function resolveName(name: OpenableFoldersOrFiles) {

@@ -4,31 +4,22 @@
         <NuxtImg src="/images/legau/logo.png" class="max-w-full" />
     </div>
     <div class="flex flex-col">
-        <h1 class="font-pixel bg-gray-400">Skills used:</h1>
-        <h2 class="font-pixel bg-gray-300">Nuxt, Vue.js, TypeScript, Tailwind CSS, Laravel, PHP, MySQL, Docker, REST APIs, Git, Scrum</h2>
+        <h1 class="font-pixel bg-gray-400">{{ $t('computer.projects.labels.skills') }}</h1>
+        <h2 class="font-pixel bg-gray-300">{{ $t('computer.projects.legau.skills') }}</h2>
     </div>
     <div class="flex flex-col">
-        <h1 class="font-pixel bg-gray-400">Description:</h1>
+        <h1 class="font-pixel bg-gray-400">{{ $t('computer.projects.labels.description') }}</h1>
         <h2 class="font-pixel bg-gray-300">
-            The Legau Client Portal is a web administration console I built
-            during my internship at Legau, a Portuguese startup that makes
-            an AI-powered legal drafting platform for law firms. Until then,
-            client organizations had no way to manage their own accounts,
-            so the portal gives each tenant's administrators a place to
-            manage users and groups, control permissions, and follow how
-            their team uses the platform.
+            {{ $t('computer.projects.legau.p1') }}
         </h2>
         <h2 class="font-pixel bg-gray-300">
-            I worked across the full stack: a Nuxt/Vue frontend built from
-            reusable design-system components, and a Laravel REST API
-            organized into controllers, services and Eloquent models. I
-            implemented authentication, user management (listing with
-            search, filters and pagination, creating, editing and
-            deactivating users), group management with member assignment,
-            a password reset flow with localized emails, and usage analytics
-            pages. The work was done remotely in a small team using Scrum,
-            ClickUp and Bitbucket, with feature branches and code review
-            for every pull request.
+            {{ $t('computer.projects.legau.p2') }}
+        </h2>
+        <h2 class="font-pixel bg-gray-300">
+            {{ $t('computer.projects.legau.p3') }}
+        </h2>
+        <h2 class="font-pixel bg-gray-300">
+            {{ $t('computer.projects.legau.p4') }}
         </h2>
     </div>
     <div class="flex flex-col">
