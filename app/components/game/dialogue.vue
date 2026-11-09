@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-
+const { t } = useI18n()
 type Item = "console" | "pc"
 const props = withDefaults(defineProps<{
     item?: Item
@@ -22,8 +22,8 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['closeDialogue', 'openComputer', 'openConsole'])
 
 const currText = ref("");
-const pcText = "You booted up the PC. Do you wish to navigate my projects/past experience?"
-const consoleText = "You booted up the console. Do you wish to play PrayingPetals?"
+const pcText = computed(() => t('game.pcText'));
+const consoleText = computed(() => t('game.consoleText'))
 const typeDelay = 25
 
 let letterCount = 0;
@@ -32,20 +32,20 @@ let buttonsVisible = ref(false)
 function typewriterEffect(item: Item) {
     let timer = setInterval(() => {
         if(item === "pc") {
-            if(currText.value.length === pcText.length) {
+            if(currText.value.length === pcText.value.length) {
                 buttonsVisible.value = true;
                 clearInterval(timer);
                 return;
             } 
-            currText.value += pcText[letterCount++];
+            currText.value += pcText.value[letterCount++];
         }
         else if (item == "console") {
-            if(currText.value.length === consoleText.length) {
+            if(currText.value.length === consoleText.value.length) {
                 buttonsVisible.value = true;
                 clearInterval(timer)
                 return;
             }
-            currText.value += consoleText[letterCount++];
+            currText.value += consoleText.value[letterCount++];
         }
     }, typeDelay);
 }

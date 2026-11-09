@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/image": "^2.1.0",
+    "@nuxtjs/i18n": "^10.6.0",
     "@tailwindcss/vite": "^4.3.3",
     "@vueuse/core": "^15.0.0",
     "nuxt": "^4.5.2",
@@ -21,7 +22,6 @@
     "vue-timer-hook": "^1.0.113"
   },
   "allowScripts": {
-    "esbuild@0.27.7": true,
-    "esbuild@0.28.2": true
+    "esbuild@0.25.12": true
   }
 }

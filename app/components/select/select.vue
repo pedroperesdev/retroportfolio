@@ -5,7 +5,7 @@
             :style="{'--windowW': width, '--windowH': height}"
         >
             <div class="text-bg px-4 prevent-select blink">
-                <h1 class="text-3xl text-purple-200 font-pixel">Select a file to run</h1>
+                <h1 class="text-3xl text-purple-200 font-pixel">{{ $t('select.message') }}</h1>
             </div>
             <div class="flex items-end gap-34">
                 <div class="flex flex-col gap-4">
@@ -17,7 +17,7 @@
                 <div class="flex flex-col gap-4">
                     <div class="icon-play ml-6 cursor-interact-sprite" @click="$emit('changeWindow', 'game')"/>
                     <div class="flex text-bg px-4 justify-center prevent-select">
-                        <h1 class="text-xl text-purple-200 font-pixel">Game.exe</h1>
+                        <h1 class="text-xl text-purple-200 font-pixel">{{ $t('select.game') }}</h1>
                     </div>
                 </div>
             </div>

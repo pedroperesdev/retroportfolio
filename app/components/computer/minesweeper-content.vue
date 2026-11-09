@@ -112,6 +112,7 @@ function winGame() {
     clearTimeout(resetToHappyFaceCoroutine);
     canClick.value = false;
     face.value = 'sunglasses';
+    flaggedMines.value = 0;
     remainingCells = ROWS*COLS;
     pause();
 }

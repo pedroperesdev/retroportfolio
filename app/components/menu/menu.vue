@@ -9,7 +9,7 @@
         >
             <div class="title"/>
             <div class="text-bg px-4 prevent-select blink">
-                <h1 class="text-3xl text-purple-200 font-pixel">Click anywhere to begin</h1>
+                <h1 class="text-3xl text-purple-200 font-pixel">{{ $t('menu.message') }}</h1>
             </div>
             <div class="flex gap-10">
                 <div class="icon-mail blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'mail')"/>
@@ -23,7 +23,6 @@
 <script lang="ts" setup>
 import { useWindowSize } from '@vueuse/core'
 const { width, height } = useWindowSize()
-
 
 </script>
 

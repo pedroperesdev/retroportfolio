@@ -2,20 +2,21 @@
   <div class="flex flex-col h-screen bg-black p-10 font-pixel gap-16" @click="clickToContinue ? triggerEmit() : {}">
     <h1>{{ currText }}</h1>
     <div v-if="clickToContinue">
-      <h2>> Click to continue <</h2>
+      <h2>> {{ $t('computer.message') }} <</h2>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+const { t } = useI18n();
 const emit = defineEmits(['doneBooting'])
 const phrases =  [
-  "Booting up OceanOS (inspired by WinVista/XP)\n",
-  "...Loading OceanOS kernel...[OK]\n",
-  "...Initializing system services...[OK]\n",
-  "...Detecting hardware...[OK]\n",
-  "...Initializing graphics...[OK]\n",
-  "...Starting OceanOS Desktop...[OK]\n"
+  computed(() => t('computer.boot.line1')),
+  computed(() => t('computer.boot.line2')),
+  computed(() => t('computer.boot.line3')),
+  computed(() => t('computer.boot.line4')),
+  computed(() => t('computer.boot.line5')),
+  computed(() => t('computer.boot.line6'))
 ];
 const currText = ref("");
 let index = 0;
@@ -31,8 +32,8 @@ onMounted(() => {
 
 function runTimer() {
   if(phraseNum != phrases.length) {
-    if(index != phrases[phraseNum]?.length) {
-      currText.value += phrases[phraseNum]![index++];
+    if(index != phrases[phraseNum]?.value.length) {
+      currText.value += phrases[phraseNum]!.value[index++];
       let timeout = 20;
       setTimeout(runTimer, timeout);
     }

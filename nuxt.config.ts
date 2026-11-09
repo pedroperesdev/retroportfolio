@@ -10,6 +10,13 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-
-  modules: ['@nuxt/fonts', '@nuxt/image'],
+  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxtjs/i18n'],
+  i18n: {
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'pt', name: 'Portuguese', file: 'pt.json' }
+    ]
+  }
 })

@@ -1,0 +1,30 @@
+{
+    "menu": {
+        "message": "Click to start"
+    },
+    "select": {
+        "message": "Select a file to run",
+        "game": "game.exe"
+    },
+    "game": {
+        "pcText": "You turned on the PC. Want to explore my projects/work experience?",
+        "consoleText": "You turned on the console. Want to play [PrayingPetals]?"
+    },
+    "computer": {
+        "boot": {
+            "line1": "Starting OceanOS (inspired by WinVista/XP)\n",
+            "line2": "...Loading OceanOS kernel...[OK]\n",
+            "line3": "...Initializing system services...[OK]\n",
+            "line4": "...Detecting hardware...[OK]\n",
+            "line5": "...Initializing graphics...[OK]\n",
+            "line6": "...Starting OceanOS Desktop...[OK]\n"
+        },
+        "login": {
+            "title": "Welcome to OceanOS",
+            "instructions": "Enter your username and password to log in to the system.",
+            "username": "Username",
+            "password": "Password",
+            "guest": "Guest"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "menu": {
+        "message": "Clique para começar"
+    },
+    "select": {
+        "message": "Seleciona um ficheiro para executar",
+        "game": "jogo.exe"
+    },
+    "game": {
+        "pcText": "Ligaste o PC. Queres explorar os meus projetos/experiência profissional?",
+        "consoleText": "Ligaste a consola. Queres jogar [PrayingPetals]?"
+    },
+    "computer": {
+        "boot": {
+            "line1": "A iniciar o OceanOS (inspirado no WinVista/XP)\n",
+            "line2": "...A carregar o kernel do OceanOS...[OK]\n",
+            "line3": "...A inicializar os serviços do sistema...[OK]\n",
+            "line4": "...A detetar o hardware...[OK]\n",
+            "line5": "...A inicializar os gráficos...[OK]\n",
+            "line6": "...A iniciar o Ambiente de Trabalho do OceanOS...[OK]\n"
+        },
+        "login": {
+            "title": "Bem-vindo ao OceanOS",
+            "instructions": "Introduz o teu nome de utilizador e palavra-passe para iniciar sessão no sistema.",
+            "username": "Utilizador",
+            "password": "Palavra-passe",
+            "guest": "Convidado"
+        }
+    }
+}

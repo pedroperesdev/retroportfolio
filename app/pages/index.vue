@@ -1,10 +1,14 @@
 <template>
-  <!--index page is responsible for switching between the following states: Menu, Select-screen, Game and Computer-->
-  <div class="flex bg-black h-screen  overflow-hidden">
-      <div class="cursor-sprite flex-1">
-        <component :is="activeScreen" @change-window="changeWindow" @open-link="openLink" @change-state="changeWindow"/>   
-      </div>
-  </div>
+    <!--index page is responsible for switching between the following states: Menu, Select-screen, Game and Computer-->
+    <div class="flex bg-black h-screen  overflow-hidden">
+        <div class="cursor-sprite flex-1">
+            <component :is="activeScreen" @change-window="changeWindow" @open-link="openLink" @change-state="changeWindow"/>   
+        </div>
+    </div>
+    <LanguageSwitcher
+        class="absolute top-[40px] right-[128px]"
+    >
+    </LanguageSwitcher>
 </template>
 
 <script lang="ts" setup>
@@ -15,6 +19,7 @@ import Prayingpetalsgame from '~/components/prayingpetalsgame/prayingpetalsgame.
 import Computer from '~/components/computer/computer.vue';
 import { useSound } from '../composables/useSound.ts'
 import type { GameState } from '~/types/start.ts';
+import LanguageSwitcher from '~/components/computer/design/language-switcher.vue';
 
 const currState = ref<GameState | null>(null);
 const screens = {
