@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits(['walking']);
 const props = defineProps(["destPoint"]);
 let currRow:number;
 let currCol:number;
@@ -74,6 +75,7 @@ function moveY(timestamp:number){
         posY += totalDistY;
         if(invertedMovement){
             isMoving = false;
+            emit('walking');
             playerAnimState.value = 'idle'
         }
         else{
@@ -101,6 +103,7 @@ function moveX(timestamp:number){
         }
         else{
             isMoving = false;
+            emit('walking');
             playerAnimState.value = 'idle'
         }
     }

@@ -66,7 +66,7 @@
                 "skills": "Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Nuxt i18n, VueUse, Nuxt Image, State Machines, Pixel Art",
                 "overview": {
                     "title": "Overview:",
-                    "text": "This portfolio is a project in itself. Instead of a regular page, you walk around a pixel-art bedroom, turn on the PC and boot into OceanOS, a small desktop operating system inspired by Windows XP/Vista, where my projects live as files and folders. It is built with Nuxt 4, Vue 3 and TypeScript, and styled with Tailwind CSS."
+                    "text": "This portfolio is a project in itself. Instead of a regular page, you walk around a pixel-art bedroom, turn on the PC and boot into OceanOS, a small desktop operating system inspired by Windows XP/Vista, where my projects live as files and folders. It is built with Nuxt 4, Vue 3 and TypeScript, and styled with Tailwind CSS. It was inspired by the MewMew game portfolio on dev.to."
                 },
                 "structure": {
                     "title": "Structure:",
@@ -91,6 +91,9 @@
                 "audio": {
                     "title": "Audio:",
                     "text": "Every sound lives in a single audio element declared once in the root component, and a small composable plays it by id, rewinding the same element on every play instead of creating new ones. The background music streams through a regular audio element and stops when you enter the computer."
+                },
+                "credits": {
+                    "title": "Sound credits:"
                 }
             }
         }

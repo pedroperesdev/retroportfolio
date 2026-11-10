@@ -5,7 +5,7 @@
             :key="n"
             class="cell"
             :class="clickableCells.includes(n) ? 'cell-hover' : 'none'"
-            @click="getPos(n)"
+            @click="() => { $emit('walking'); getPos(n)}"
         >
         </div>
 
@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 
-const emit = defineEmits(['getPos']);
+const emit = defineEmits(['getPos', 'walking']);
 defineProps<{
     canInteract: boolean;
 }>()

@@ -13,8 +13,8 @@
             <Shelf class="absolute z-1 top-[116px] left-[464px]"/>
             <Pc :canInteract="!interactingWith" class="absolute z-3 top-[120px] left-[284px]" @open-pc-dialogue="openPcDialogue"/>
             <Console :canInteract="!interactingWith" class="absolute z-3 top-[216px] left-[120px]" @open-console-dialogue="openConsoleDialogue"/>
-            <Cells :canInteract="!interactingWith" class="absolute z-2 top-[192px] left-[64px]" @get-pos="calcPos"/>
-            <Player ref="player" class="absolute z-4 top-[320px] left-[256px]"/>
+            <Cells :canInteract="!interactingWith && !isMoving" class="absolute z-2 top-[192px] left-[64px]" @get-pos="calcPos" @walking="isMoving = true"/>
+            <Player ref="player" class="absolute z-4 top-[320px] left-[256px]" @walking="isMoving = false"/>
             <Dialogue 
               v-if="interactingWith != null" 
               :item="interactingWith" 
@@ -47,6 +47,7 @@ const { width, height } = useWindowSize()
 const emit = defineEmits(['changeWindow'])
 
 const interactingWith = ref<ItemsWithDialogue | null>(null);
+const isMoving = ref<boolean>(false);
 const player = useTemplateRef<any>('player');
 const invertedMovementCells = [33, 34, 35, 36, 37, 41, 42, 43, 44, 45]
 

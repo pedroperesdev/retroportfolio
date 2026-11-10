@@ -66,7 +66,7 @@
                 "skills": "Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Nuxt i18n, VueUse, Nuxt Image, Máquinas de Estados, Pixel Art",
                 "overview": {
                     "title": "Visão geral:",
-                    "text": "Este portefólio é um projeto por si só. Em vez de uma página normal, andas por um quarto em pixel art, ligas o PC e arrancas o OceanOS, um pequeno sistema operativo inspirado no Windows XP/Vista, onde os meus projetos estão guardados como ficheiros e pastas. Foi construído com Nuxt 4, Vue 3 e TypeScript, e estilizado com Tailwind CSS."
+                    "text": "Este portefólio é um projeto por si só. Em vez de uma página normal, andas por um quarto em pixel art, ligas o PC e arrancas o OceanOS, um pequeno sistema operativo inspirado no Windows XP/Vista, onde os meus projetos estão guardados como ficheiros e pastas. Foi construído com Nuxt 4, Vue 3 e TypeScript, e estilizado com Tailwind CSS. Foi inspirado pelo portefólio em jogo MewMew no dev.to."
                 },
                 "structure": {
                     "title": "Estrutura:",
@@ -91,6 +91,9 @@
                 "audio": {
                     "title": "Áudio:",
                     "text": "Cada som vive num único elemento audio declarado uma vez no componente raiz, e um pequeno composable toca-o pelo id, rebobinando o mesmo elemento a cada reprodução em vez de criar novos. A música de fundo é transmitida através de um elemento audio normal e para quando entras no computador."
+                },
+                "credits": {
+                    "title": "Créditos de som:"
                 }
             }
         }
