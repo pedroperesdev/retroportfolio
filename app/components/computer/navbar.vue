@@ -16,7 +16,10 @@
             @click="$emit('openMinimized', tab.id)"
         />
     </div>
-    <div class="flex justify-center items-center px-[12px] ml-auto border-blue-400 border-[4px]">
+    <div class="flex justify-center items-center px-[12px] ml-auto border-blue-400 border-[4px] gap-[8px]">
+        <LanguageSwitcherDesktop
+            class="cursor-interact-sprite"
+        />
         <h2 class="font-pixel">{{ currTime.getHours() }}:{{ formattedMinutes() }}</h2>
     </div>
   </div>
@@ -25,6 +28,7 @@
 <script lang="ts" setup>
 import type { IconType } from '~/types/computer.ts';
 import Icon from './design/icon.vue';
+import LanguageSwitcherDesktop from './language-switcher-desktop.vue';
 const props = withDefaults(defineProps<{
     clicked?: boolean
     tabs?: { id: number, icon: IconType }[]

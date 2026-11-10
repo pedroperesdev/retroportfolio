@@ -5,30 +5,23 @@
         @click="() => { useSound('click-sound'); swapLocale() }"
     >
         <div 
-            class="flag"
+            class="flag-desktop"
             :style="{'--flagUrl': `url(${flagUrl})`}"
         >
-        </div>
-        <div
-            class="absolute left-[64px] top-[12px] h-fit p-[4px] w-[132px] bg-white"
-        >
-            <p class="font-vt323 text-3xl">
-                {{ currLocaleName! }}
-            </p>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { useSound } from '../../../composables/useSound.ts';
+import { useSound } from '../../composables/useSound.ts';
 const { locale, locales, setLocale } = useI18n()
 const flagUrl = computed(() => {
     switch(currLocaleName.value){
         case 'English': {
-            return 'sprites/english.png';
+            return 'sprites/english_desktop.png';
         }
         case 'Portuguese': {
-            return 'sprites/portuguese.png';
+            return 'sprites/portuguese_desktop.png';
         }
     }
 })
@@ -48,11 +41,11 @@ function swapLocale(){
 </script>
 
 <style scope>
-.flag {
-    width: 68px;
-    height: 68px;
+.flag-desktop {
+    width: 48px;
+    height: 28px;
     background-image: var(--flagUrl);
-    background-size: 68px 68px;
+    background-size: 48px 28px;
     image-rendering: pixelated;
 }
 </style>

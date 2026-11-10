@@ -6,9 +6,9 @@
         </div>
     </div>
     <LanguageSwitcher
+        v-if="activeScreen !== Computer"
         class="absolute top-[40px] right-[128px]"
-    >
-    </LanguageSwitcher>
+    />
 </template>
 
 <script lang="ts" setup>
@@ -19,7 +19,8 @@ import Prayingpetalsgame from '~/components/prayingpetalsgame/prayingpetalsgame.
 import Computer from '~/components/computer/computer.vue';
 import { useSound } from '../composables/useSound.ts'
 import type { GameState } from '~/types/start.ts';
-import LanguageSwitcher from '~/components/computer/design/language-switcher.vue';
+import LanguageSwitcher from '~/components/computer/language-switcher.vue';
+import LanguageSwitcherDesktop from '~/components/computer/language-switcher-desktop.vue';
 
 const currState = ref<GameState | null>(null);
 const screens = {
