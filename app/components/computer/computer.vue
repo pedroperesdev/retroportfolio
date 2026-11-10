@@ -4,6 +4,11 @@
       <div class="absolute bottom-0 left-40 bubbles bubble-left"/>
       <div class="absolute bottom-40 right-40 bubbles bubble-right"/>
       <div class="absolute bottom-80 right-80 bubbles bubble-left"/>
+      <div class="absolute bottom-40 right-80 bubbles bubble-right"/>
+      <div class="absolute bottom-80 right-180 bubbles bubble-right"/>
+      <div class="absolute bottom-0 left-120 bubbles bubble-left"/>
+      <div class="absolute bottom-30 right-150 bubbles bubble-right"/>
+
     </div>
     <component
       :is="screenMapper[currScreen]"

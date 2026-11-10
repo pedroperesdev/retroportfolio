@@ -72,6 +72,11 @@ const { width:elemW, height:elemH } = useElementSize(windowElement);
 onMounted(() => {
   useSound('computer-boot');
   stopSound('main-music');
+  startKeepAudioAwake();
+})
+
+onUnmounted(() => {
+  stopKeepAudioAwake();
 })
 
 const emit = defineEmits(['turnOff']);

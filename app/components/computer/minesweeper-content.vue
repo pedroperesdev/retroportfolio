@@ -93,8 +93,6 @@ function clickCell(cell: MineSweeperCell, [row,col]: [number,number]) {
         //exclude current pos
         placeMinesAndNumbers([row,col]);
     }
-    console.log([row,col])
-    console.log(getNeighbours([row,col]))
     if(cell.appearance !== 'open') cell.appearance = 'open';
     if(cell.value === 'mine') {
         //pass the losing mine
@@ -105,7 +103,6 @@ function clickCell(cell: MineSweeperCell, [row,col]: [number,number]) {
     if(remainingCells === winTarget){
         winGame()
     }
-    console.log(remainingCells)
 }
 
 function winGame() {
