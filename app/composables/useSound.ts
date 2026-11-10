@@ -5,8 +5,8 @@ export function useSound(audioId : string) {
         audio.play();
         return;
     }
-    const sfx = audio.cloneNode() as HTMLAudioElement;
-    sfx.volume = audio.volume;
-    sfx.play();
+    // reuse the same audio element
+    audio.currentTime = 0;
+    audio.play();
     return
 }

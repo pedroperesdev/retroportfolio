@@ -61,6 +61,37 @@
                 "p2": "No frontend, construí a interface com Nuxt, Vue e TypeScript, usando componentes reutilizáveis do design system e criando novos. Implementei autenticação por token e um middleware de rotas em Nuxt que verifica o estado da sessão, guardado com useState, antes de cada navegação, para que as páginas protegidas só sejam acessíveis a utilizadores autenticados e os restantes sejam redirecionados para o login.",
                 "p3": "No backend, desenvolvi uma REST API em Laravel com uma arquitetura em camadas Controller–Service–Model, uma variante do MVC adequada a APIs. Os controllers tratam os pedidos e respostas HTTP, os services contêm a lógica de negócio e os modelos Eloquent funcionam como camada ORM que mapeia as tabelas da base de dados. As funcionalidades incluíram a gestão de utilizadores (listagem com pesquisa, filtros e paginação, além de criação, edição e desativação), a gestão de grupos com atribuição de membros, um fluxo de recuperação de palavra-passe com e-mails traduzidos e os endpoints das páginas de estatísticas de utilização.",                
                 "p4": "O trabalho foi feito remotamente numa equipa pequena, com Scrum, as tarefas geridas no ClickUp e o código alojado no Bitbucket. Cada funcionalidade foi desenvolvida no seu próprio branch e passou por revisão de código antes do merge."
+            },
+            "portfolio": {
+                "skills": "Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Nuxt i18n, VueUse, Nuxt Image, Máquinas de Estados, Pixel Art",
+                "overview": {
+                    "title": "Visão geral:",
+                    "text": "Este portefólio é um projeto por si só. Em vez de uma página normal, andas por um quarto em pixel art, ligas o PC e arrancas o OceanOS, um pequeno sistema operativo inspirado no Windows XP/Vista, onde os meus projetos estão guardados como ficheiros e pastas. Foi construído com Nuxt 4, Vue 3 e TypeScript, e estilizado com Tailwind CSS."
+                },
+                "structure": {
+                    "title": "Estrutura:",
+                    "text": "A aplicação está organizada em máquinas de estados encadeadas. A página principal guarda o estado atual do jogo (menu, seleção, jogo, consola ou computador) e associa cada um a um componente, renderizado como componente dinâmico (:is). O computador tem a sua própria máquina de estados (terminal de arranque, logótipo, login, ambiente de trabalho e encerramento), controlada por temporizadores durante o arranque. Os componentes filhos nunca alteram o estado diretamente: emitem eventos e o pai decide o que mostrar, por isso os dados descem através de props e os eventos sobem."
+                },
+                "desktop": {
+                    "title": "Gestor de janelas:",
+                    "text": "O ambiente de trabalho guarda cada janela aberta como um objeto WindowState tipado (posição, z-index, estado) num único array, que é a fonte de verdade para as janelas, os separadores da barra de tarefas e o foco. Trata de focar, minimizar, maximizar, fechar e arrastar janelas com pointer events, limitados ao tamanho do ecrã. Um componente de janela genérico resolve o seu conteúdo através de um mapa de nome para componente, por isso adicionar uma nova aplicação só exige um componente de conteúdo, uma entrada no mapa e um novo valor no union type dos nomes de ficheiros."
+                },
+                "room": {
+                    "title": "Quarto do jogo:",
+                    "text": "O quarto é uma cena fixa de 640x640 escalada para o ecrã com CSS, mantendo a pixel art nítida com image-rendering: pixelated. O chão é uma grelha de 8x6 células clicáveis, com as células bloqueadas filtradas. O jogador move-se célula a célula com requestAnimationFrame e delta time, um eixo de cada vez (com a ordem invertida em algumas células para contornar os móveis), e é animado a partir de uma sprite sheet com CSS steps(). Os objetos interativos abrem um diálogo que leva ao PC ou à consola."
+                },
+                "apps": {
+                    "title": "Aplicações:",
+                    "text": "O OceanOS inclui um Minesweeper funcional (as minas são colocadas depois do primeiro clique, para que este seja sempre seguro, as áreas vazias abrem com flood fill, e há bandeiras, temporizador e expressões da cara), uma Calculadora, uma galeria de Fotos e ficheiros de projetos como este. A consola no quarto corre o build WebGL de Praying Petals, feito em Unity, dentro de um iframe."
+                },
+                "patterns": {
+                    "title": "Padrões e convenções:",
+                    "text": "Todos os estados e nomes são union types de TypeScript, por isso estados inválidos são detetados em tempo de compilação. Cada componente tem uma única responsabilidade, e as peças visuais reutilizáveis (ícones, janelas, botões) ficam numa pasta de design, com variantes escolhidas através de objetos de mapeamento em vez de longas cadeias de if/else. A lógica partilhada, como o som, vive em composables. Todo o texto é traduzido com Nuxt i18n (inglês e português), incluindo os nomes dos ficheiros do ambiente de trabalho, que usam o nome original quando não existe tradução."
+                },
+                "audio": {
+                    "title": "Áudio:",
+                    "text": "Cada som vive num único elemento audio declarado uma vez no componente raiz, e um pequeno composable toca-o pelo id, rebobinando o mesmo elemento a cada reprodução em vez de criar novos. A música de fundo é transmitida através de um elemento audio normal e para quando entras no computador."
+                }
             }
         }
     }

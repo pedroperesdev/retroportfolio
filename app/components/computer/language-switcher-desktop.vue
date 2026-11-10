@@ -2,7 +2,7 @@
     <div
         v-if="flagUrl != null" 
         class="flex gap-4 cursor-interact-sprite"
-        @click="() => { useSound('click-sound'); swapLocale() }"
+        @click="swapLocale"
     >
         <div 
             class="flag-desktop"

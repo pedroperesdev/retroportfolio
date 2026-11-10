@@ -61,6 +61,37 @@
                 "p2": "On the frontend, I built the interface with Nuxt, Vue and TypeScript, using reusable design-system components. I implemented token-based authentication and Nuxt route middleware that checks the session state, stored with useState, before every navigation, so protected pages are only reachable by authenticated users and everyone else is redirected to the login page.",
                 "p3": "On the backend, I developed a Laravel REST API using a layered Controller–Service–Model architecture, a variant of MVC suited to APIs. Controllers handle the HTTP requests and responses, services contain the business logic, and Eloquent models act as the ORM layer that maps the database tables. Features included user management (listing with search, filters and pagination, plus creating, editing and deactivating users), group management with member assignment, a password reset flow with localized emails, and the endpoints behind the usage analytics pages.",
                 "p4": "The work was done remotely in a small team using Scrum, with tasks tracked in ClickUp and code hosted on Bitbucket. Every feature was developed on its own branch and went through code review before being merged."
+            },
+            "portfolio": {
+                "skills": "Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Nuxt i18n, VueUse, Nuxt Image, State Machines, Pixel Art",
+                "overview": {
+                    "title": "Overview:",
+                    "text": "This portfolio is a project in itself. Instead of a regular page, you walk around a pixel-art bedroom, turn on the PC and boot into OceanOS, a small desktop operating system inspired by Windows XP/Vista, where my projects live as files and folders. It is built with Nuxt 4, Vue 3 and TypeScript, and styled with Tailwind CSS."
+                },
+                "structure": {
+                    "title": "Structure:",
+                    "text": "The app is organised as nested state machines. The index page holds the current game state (menu, select, game, console or computer) and maps each one to a component rendered with a dynamic component (:is). The computer has its own state machine (boot terminal, logo, login, desktop and shutdown), driven by timers for the boot sequence. Children never change state directly: they emit events and the parent decides what to render, so data flows down through props and events flow up."
+                },
+                "desktop": {
+                    "title": "Window manager:",
+                    "text": "The desktop keeps every open window as a typed WindowState object (position, z-index, status) in a single array, which is the source of truth for the windows, the taskbar tabs and the focus. It handles focusing, minimizing, maximizing, closing and dragging with pointer events clamped to the screen size. A generic window component resolves its content through a name-to-component map, so adding a new app only needs a content component, one map entry and a new value in the file-name union type."
+                },
+                "room": {
+                    "title": "Game room:",
+                    "text": "The bedroom is a fixed 640x640 scene scaled to the viewport with CSS, keeping the pixel art crisp with image-rendering: pixelated. The floor is an 8x6 grid of clickable cells, with blocked cells filtered out. The player moves cell by cell using requestAnimationFrame with delta time, one axis at a time (with the order flipped on some cells to walk around furniture), and is animated from a sprite sheet with CSS steps(). Interactable objects open a dialogue that leads to the PC or the console."
+                },
+                "apps": {
+                    "title": "Apps:",
+                    "text": "OceanOS includes a working Minesweeper (mines are placed after the first click so it is always safe, empty areas open with a flood fill, plus flags, a timer and face states), a Calculator, a Photos gallery and project files like this one. The console in the room runs the Unity WebGL build of Praying Petals inside an iframe."
+                },
+                "patterns": {
+                    "title": "Patterns and conventions:",
+                    "text": "Every state and name is a TypeScript union type, so invalid states are caught at compile time. Each component has one responsibility, and reusable presentational pieces (icons, windows, buttons) live in a design folder, with variants chosen through mapper objects instead of long if/else chains. Shared logic such as sound lives in composables. All text is translated with Nuxt i18n (English and Portuguese), including desktop file names, which fall back to their original name when no translation exists."
+                },
+                "audio": {
+                    "title": "Audio:",
+                    "text": "Every sound lives in a single audio element declared once in the root component, and a small composable plays it by id, rewinding the same element on every play instead of creating new ones. The background music streams through a regular audio element and stops when you enter the computer."
+                }
             }
         }
     }

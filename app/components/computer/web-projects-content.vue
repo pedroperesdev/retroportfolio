@@ -6,6 +6,12 @@
         icon-place="infolder"
         @open-file="(name:OpenableFoldersOrFiles, icon:IconType) => $emit('openFile', name, icon)"
     />
+    <Icon 
+        icon='file'
+        file-name="game_portfolio.pdf" 
+        icon-place="infolder"
+        @open-file="(name:OpenableFoldersOrFiles, icon:IconType) => $emit('openFile', name, icon)"
+    />
   </div>
 </template>
 

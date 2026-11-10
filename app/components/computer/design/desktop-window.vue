@@ -42,6 +42,7 @@ import { useWindowSize } from '@vueuse/core'
 import LegauInternshipContent from '../legau-internship-content.vue';
 import PhotosContent from '../photos-content.vue';
 import MinesweeperContent from '../minesweeper-content.vue';
+import GamePortfolioContent from '../game-portfolio-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
 const { t, te } = useI18n()
 
@@ -76,6 +77,7 @@ function resolveName(name: OpenableFoldersOrFiles) {
         'game projects': GameProjectsContent,
         'prayingpetals.pdf': PrayingPetalsContent,
         'legau_internship.pdf': LegauInternshipContent,
+        'game_portfolio.pdf': GamePortfolioContent,
         'Calculator': CalculatorContent,
         'Minesweeper': MinesweeperContent,
         'Photos': PhotosContent,

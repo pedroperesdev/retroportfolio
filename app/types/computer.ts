@@ -1,5 +1,5 @@
 export type Screen = 'cmd' | 'booting' | 'login' | 'desktop' | 'turnoff' | 'none';
-export type OpenableFoldersOrFiles = '' | 'web projects' | 'game projects' | 'Recycle Bin' | 'prayingpetals.pdf' | 'legau_internship.pdf' | 'Calculator' | 'Minesweeper' | 'Photos';
+export type OpenableFoldersOrFiles = '' | 'web projects' | 'game projects' | 'Recycle Bin' | 'prayingpetals.pdf' | 'legau_internship.pdf' | 'game_portfolio.pdf' | 'Calculator' | 'Minesweeper' | 'Photos';
 export type WindowStatus = 'normal' | 'maximized' | 'minimized';
 export type IconType = 'folder' | 'recyclebin' | 'file' | 'apps' | 'calculator' | 'minesweeper' | 'photos';
 export type IconPlace = 'desktop' | 'navbar' | 'infolder' | 'startbar';
