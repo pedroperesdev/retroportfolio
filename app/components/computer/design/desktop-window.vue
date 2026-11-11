@@ -2,7 +2,7 @@
     <div
         class="flex flex-col border-[4px]" 
         :class="active ? 'border-blue-800 bg-blue-800' : 'border-gray-800 bg-gray-800'"
-        :style="{'width': maximized ? elemW + 'px' : canMaximize ? '540px' : '430px'}"
+        :style="{'width': maximized ? elemW + 'px' : canMaximize ? '420px' : '430px'}"
     >
         <div 
             class="flex justify-between items-center px-[12px] bg-blue-800 h-[76px]
@@ -24,7 +24,7 @@
             <div 
                 class="flex flex-col gap-[20px] bg-gray-200 border-[4px] px-[24px] py-[16px]" 
                 :class="active ? 'border-blue-600' : 'border-gray-600'"
-                :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '400px' : '480px'}"
+                :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '300px' : '480px'}"
             >
                 <component :is="resolveName(props.name)" @shake-window="() => { $emit('shake-window'); shakeEffect();}" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)" :class="{'glitch-rgb': glitching}"/>
             </div>
@@ -101,7 +101,7 @@ function resolveName(name: OpenableFoldersOrFiles) {
 @import "tailwindcss";
 
 h1 {
-    @apply text-3xl text-white font-semibold
+    @apply text-xl text-white font-semibold
 }
 
 h2 {

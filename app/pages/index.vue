@@ -1,7 +1,7 @@
 <template>
     <!--index page is responsible for switching between the following states: Menu, Select-screen, Game (room area), Console and Computer-->
     <div class="flex bg-black h-screen  overflow-hidden">
-        <div class="cursor-sprite flex-1">
+        <div class="cursor-sprite flex-1 min-w-0">
             <component :is="activeScreen" @change-window="changeWindow" @open-link="openLink" @change-state="changeWindow"/>   
         </div>
     </div>
