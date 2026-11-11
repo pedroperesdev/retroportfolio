@@ -8,6 +8,8 @@
     <audio id="bubbles-sound" src="/audio/bubbles.wav"/>
     <audio id="click-pc" src="/audio/click_pc.wav"/>
     <audio id="dog-sound" src="/audio/dog.wav"/>
+    <audio id="flag-sound" src="/audio/flag.wav"/>
+    <audio id="explosion-sound" src="/audio/explosion.wav"/>
     <NuxtPage/>
   </div>
 </template>

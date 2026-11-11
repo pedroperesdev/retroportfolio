@@ -26,7 +26,7 @@
                 :class="active ? 'border-blue-600' : 'border-gray-600'"
                 :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '400px' : '480px'}"
             >
-                <component :is="resolveName(props.name)" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
+                <component :is="resolveName(props.name)" @shake-window="$emit('shake-window')" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
             </div>
         </div>
     </div>

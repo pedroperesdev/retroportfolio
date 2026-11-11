@@ -18,6 +18,7 @@
       @maximize-window="maximizeWindow(window.id)"
       @close-window="closeWindow(window.id)"
       @open-file="openFile"
+      @shake-window="shakeWindow(window.id)"
     />
     <div class="flex flex-col flex-wrap gap-[8px] p-[24px] w-full">
       <Icon icon="recyclebin" file-name="Recycle Bin" :shorten="false" icon-place="desktop" @add-new-window="addNewWindow"/>
@@ -121,6 +122,36 @@ function unhoverApps() {
 
 function turnoffPc() {
   emit('turnOff');
+}
+
+function shakeWindow(windowId: number) {
+  if(!makeSelectedWindowCurrent(windowId)) return;
+  const win = currWindow.value;
+  if(!win) return;
+  const { x, y } = win;
+  if( !x || !y) return;
+  let delay = 85;
+  const glitchOffsets: [number, number][] = [
+    [x + 50,  y + 50],
+    [x - 30,  y + 100],
+    [x + 80,  y - 20],
+    [x - 60,  y - 40],
+    [x + 20,  y + 70],
+    [x + 50,  y + 50],
+    [x - 30,  y + 100],
+    [x + 80,  y - 20],
+    [x - 60,  y - 40],
+    [x + 20,  y + 70],
+    [x + 50,  y + 50],
+    [x, y],
+  ];
+  glitchOffsets.forEach(([ox, oy]) => {
+    setTimeout(() => {
+      win.x = ox;
+      win.y = oy;
+    }, delay)
+    delay += 85;
+  })
 }
 
 function addNewWindow(name: string, icon: IconType) {

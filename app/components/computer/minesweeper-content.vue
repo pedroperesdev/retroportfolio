@@ -53,8 +53,9 @@ const canClick = ref<boolean>(true);
 let remainingCells:number = ROWS * COLS;
 let winTarget:number = 10;
 const flaggedMines = ref<number>(10);
-let explodeMinesCoroutine:ReturnType<typeof setTimeout>;
 let resetToHappyFaceCoroutine:ReturnType<typeof setTimeout>;
+
+const emit = defineEmits(['shake-window']);
 
 
 //Set smiley face and populate with normal cells. After first click, mines are placed
@@ -95,7 +96,7 @@ function clickCell(cell: MineSweeperCell, [row,col]: [number,number]) {
     }
     if(cell.appearance !== 'open') cell.appearance = 'open';
     if(cell.value === 'mine') {
-        //pass the losing mine
+        //pass the losing mine as arg
         loseGame([row,col])
     }
     else if (cell.value === 'nothing') floodOpen([row,col]);
@@ -115,6 +116,8 @@ function winGame() {
 }
 
 function loseGame([row,col]:[number,number]) {
+    useSound('explosion-sound');
+    emit('shake-window');
     explodeMines([row,col]);
     clearTimeout(resetToHappyFaceCoroutine);
     canClick.value = false;
@@ -136,7 +139,7 @@ async function explodeMines([row,col]:[number,number]){
     }
     minePositions.value.filter(([r,c]) => r !== row && c !== col)
     for(const mine of minePositions.value) {
-        await wait(150);
+        await wait(85);
         const imine = board.value[mine[0]]?.[mine[1]];
         if(imine && imine.value === 'mine') {
             imine.appearance = 'open'
@@ -197,7 +200,8 @@ function flagCell([row, col] : [number, number]) {
         else if(cell.appearance === 'flag'){
             cell.appearance = 'hidden'
             flaggedMines.value += 1;
-        } 
+        }
+        useSound('flag-sound');
     }
 }
 

@@ -2,7 +2,7 @@
     <div
         class="sound cursor-interact-sprite"
         :style="{'--soundUrl': `url(${spriteUrl})`}"
-        @click="() => { soundOn = !soundOn; soundOn? resumeSound('main-music') : stopSound('main-music') }"
+        @click="() => { soundOn = !soundOn; useSound('click-sound'); soundOn? resumeSound('main-music') : stopSound('main-music') }"
     >
 
     </div>
