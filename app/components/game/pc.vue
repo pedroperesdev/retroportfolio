@@ -21,24 +21,24 @@ function openPcDialogue() {
 <style scoped>
 
 .cursor-interact-sprite {
-  cursor: url('sprites/cursor_interact.png') 15 5, auto;
+  cursor: url('/sprites/cursor_interact.png') 15 5, auto;
 }
 
 .pc {
     width: 104px;
     height: 100px;
-    background-image: url('sprites/pc.png');
+    background-image: url('/sprites/pc.png');
     background-size: 104px 100px;
     image-rendering: pixelated;
 }
 
 .pc-container:hover {
-    background-image: url('sprites/pc_hover.png');
+    background-image: url('/sprites/pc_hover.png');
     animation: increase-size 1s forwards reverse;
 }
 
 .pc-hover:hover {
-    background-image: url('sprites/pc_hover.png');
+    background-image: url('/sprites/pc_hover.png');
     animation: increase-size 0.6s forwards;
 }
 

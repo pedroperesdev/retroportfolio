@@ -28,7 +28,7 @@ function showHeart(){
 .heart {
     width: 60px;
     height: 56px;
-    background-image: url('sprites/heart.png');
+    background-image: url('/sprites/heart.png');
     background-size: 60px 56px;
     image-rendering: pixelated;
 }
@@ -36,7 +36,7 @@ function showHeart(){
 .dog_sleep {
     width: 104px;
     height: 68px;
-    background-image: url('sprites/dog_sleep.png');
+    background-image: url('/sprites/dog_sleep.png');
     background-size: 312px 68px;
     image-rendering: pixelated;
     background-position-x: -104px;

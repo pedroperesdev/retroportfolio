@@ -13,7 +13,7 @@
 .carpet {
     width: 192px;
     height: 152px;
-    background-image: url('sprites/carpet.png');
+    background-image: url('/sprites/carpet.png');
     background-size: 192px 152px;
     image-rendering: pixelated;
 }

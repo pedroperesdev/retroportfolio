@@ -34,7 +34,7 @@ h1 {
 .logo {
     width: 224px;
     height: 220px;
-    background-image: url('sprites/logo.png');
+    background-image: url('/sprites/logo.png');
     background-color: rgba(255, 255, 255, 0);
     background-size: 224px 220px;
     image-rendering: pixelated;

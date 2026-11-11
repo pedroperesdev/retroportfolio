@@ -52,7 +52,7 @@ h2 {
 .user-sprite {
     width: 108px;
     height: 108px;
-    background-image: url('sprites/user.png');
+    background-image: url('/sprites/user.png');
     background-size: 100px 100px;
     image-rendering: pixelated;
 }

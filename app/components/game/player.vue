@@ -116,7 +116,7 @@ function moveX(timestamp:number){
     image-rendering: pixelated;
     width: 64px;
     height: 128px;
-    background-image: url('sprites/player.png');
+    background-image: url('/sprites/player.png');
     background-size: 384px 1280px;
     background-position-x: -64px;
     background-position-y: var(--row, 0px);
@@ -150,7 +150,7 @@ function moveX(timestamp:number){
     image-rendering: pixelated;
     width: 64px;
     height: 128px;
-    background-image: url('sprites/player.png');
+    background-image: url('/sprites/player.png');
     background-size: 384px 1280px;
     background-position: -64px 0;
 }

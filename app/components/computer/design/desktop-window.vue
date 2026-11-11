@@ -111,7 +111,7 @@ h2 {
 .close-button {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/exit_button.png');
+    background-image: url('/sprites/exit_button.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }
@@ -119,7 +119,7 @@ h2 {
 .maximize-button {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/maximize_button.png');
+    background-image: url('/sprites/maximize_button.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }
@@ -127,7 +127,7 @@ h2 {
 .minimize-button {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/min_tab.png');
+    background-image: url('/sprites/min_tab.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }
@@ -135,7 +135,7 @@ h2 {
 .close-button-inactive {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/close_button_inactive.png');
+    background-image: url('/sprites/close_button_inactive.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }
@@ -143,7 +143,7 @@ h2 {
 .maximize-button-inactive  {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/max_button_inactive.png');
+    background-image: url('/sprites/max_button_inactive.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }
@@ -151,7 +151,7 @@ h2 {
 .minimize-button-inactive  {
     width: 48px;
     height: 48px;
-    background-image: url('sprites/min_tab_inactive.png');
+    background-image: url('/sprites/min_tab_inactive.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
 }

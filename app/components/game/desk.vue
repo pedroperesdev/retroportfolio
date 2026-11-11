@@ -13,7 +13,7 @@
 .desk {
     width: 168px;
     height: 96px;
-    background-image: url('sprites/desk.png');
+    background-image: url('/sprites/desk.png');
     background-size: 168px 96px;
     image-rendering: pixelated;
 }

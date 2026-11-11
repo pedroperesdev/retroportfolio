@@ -91,7 +91,7 @@ function turnOff() {
 .bubbles {
     width: 136px;
     height: 216px;
-    background-image: url('sprites/bubbles.png');
+    background-image: url('/sprites/bubbles.png');
     background-size: 136px 216px;
     image-rendering: pixelated;
 }

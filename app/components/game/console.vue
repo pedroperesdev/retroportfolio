@@ -16,19 +16,19 @@ const hover = computed(() => props.canInteract ? "console-hover" : null)
 <style scoped>
 
 .cursor-interact-sprite {
-  cursor: url('sprites/cursor_interact.png') 15 5, auto;
+  cursor: url('/sprites/cursor_interact.png') 15 5, auto;
 }
 
 .console {
     width: 88px;
     height: 52px;
-    background-image: url('sprites/console.png');
+    background-image: url('/sprites/console.png');
     background-size: 88px 52px;
     image-rendering: pixelated;
 }
 
 .console-hover:hover {
-    background-image: url('sprites/console_hover.png');
+    background-image: url('/sprites/console_hover.png');
     animation: increase-size 0.6s forwards;
 }
 

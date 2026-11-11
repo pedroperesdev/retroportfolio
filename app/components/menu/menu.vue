@@ -36,7 +36,7 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 368px;
     height: 120px;
-    background-image: url('sprites/title.png');
+    background-image: url('/sprites/title.png');
     background-size: 368px 120px;
     animation: upDown 5s infinite ease-in-out;
 }
@@ -50,12 +50,12 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 68px;
     height: 68px;
-    background-image: url('sprites/mail.png');
+    background-image: url('/sprites/mail.png');
     background-size: 68px 68px;
 }
 
 .icon-mail:hover {
-    background-image: url('sprites/mail_border.png');
+    background-image: url('/sprites/mail_border.png');
     transform: scale(1.3);
 }
 
@@ -63,12 +63,12 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 68px;
     height: 68px;
-    background-image: url('sprites/linkedin.png');
+    background-image: url('/sprites/linkedin.png');
     background-size: 68px 68px;
 }
 
 .icon-linkedin:hover {
-    background-image: url('sprites/linkedin_border.png');
+    background-image: url('/sprites/linkedin_border.png');
     transform: scale(1.3);
 }
 
@@ -76,12 +76,12 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 68px;
     height: 68px;
-    background-image: url('sprites/github.png');
+    background-image: url('/sprites/github.png');
     background-size: 68px 68px;
 }
 
 .icon-github:hover {
-    background-image: url('sprites/github_border.png');
+    background-image: url('/sprites/github_border.png');
     transform: scale(1.3);
 
 }

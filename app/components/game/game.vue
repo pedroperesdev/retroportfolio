@@ -103,7 +103,7 @@ function openConsole() {
     width: 640px;
     height: 640px;
     image-rendering: pixelated;
-    background-image: url('sprites/room.png');
+    background-image: url('/sprites/room.png');
     background-size: 640px 640px;
 }
 

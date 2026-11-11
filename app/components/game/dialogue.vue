@@ -74,7 +74,7 @@ onMounted(() => {
 .dialogue {
     width: 608px;
     height: 204px;
-    background-image: url('sprites/dialogue.png');
+    background-image: url('/sprites/dialogue.png');
     background-size: 608px 204px;
     image-rendering: pixelated;
 }
@@ -82,24 +82,24 @@ onMounted(() => {
 .button-yes {
     width: 104px;
     height: 64px;
-    background-image: url('sprites/yes.png');
+    background-image: url('/sprites/yes.png');
     background-size: 104px 64px;
     image-rendering: pixelated;
 }
 .button-yes:hover {
-    background-image: url('sprites/yes_hover.png');
+    background-image: url('/sprites/yes_hover.png');
 }
 
 .button-no {
     width: 104px;
     height: 64px;
-    background-image: url('sprites/no.png');
+    background-image: url('/sprites/no.png');
     background-size: 104px 64px;
     image-rendering: pixelated;
 }
 
 .button-no:hover {
-    background-image: url('sprites/no_hover.png');
+    background-image: url('/sprites/no_hover.png');
 }
 
 </style>

@@ -250,7 +250,7 @@ function stopDrag(e : PointerEvent) {
 .wallpaper {
   width: var(--windowW);
   height: var(--windowH);
-  background-image: url('sprites/wallpaper.png');
+  background-image: url('/sprites/wallpaper.png');
   background-size: var(--windowW) var(--windowH);
   image-rendering: pixelated;
 }

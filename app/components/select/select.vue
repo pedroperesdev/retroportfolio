@@ -37,12 +37,12 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 88px;
     height: 112px;
-    background-image: url('sprites/cv.png');
+    background-image: url('/sprites/cv.png');
     background-size: 88px 112px ;
 }
 
 .icon-cv:hover {
-    background-image: url('sprites/cv_border.png');
+    background-image: url('/sprites/cv_border.png');
     transform: scale(1.2);
 }
 
@@ -50,12 +50,12 @@ const { width, height } = useWindowSize()
     image-rendering: pixelated;
     width: 88px;
     height: 152px;
-    background-image: url('sprites/playerfront.png');
+    background-image: url('/sprites/playerfront.png');
     background-size: 88px 152px ;
 }
 
 .icon-play:hover {
-    background-image: url('sprites/playerfront_border.png');
+    background-image: url('/sprites/playerfront_border.png');
     transform: scale(1.2);
 }
 

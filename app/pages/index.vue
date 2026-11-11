@@ -71,7 +71,7 @@ function openLink(target:string) {
 <style>
 
 .cursor-sprite {
-  cursor: url('sprites/cursor_normal.png') 15 5, auto;
+  cursor: url('/sprites/cursor_normal.png') 15 5, auto;
 }
 
 </style>

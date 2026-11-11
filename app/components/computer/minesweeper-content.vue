@@ -14,7 +14,7 @@
         </div>
         <div 
             class="absolute face top-[124px] left-[184px]"
-            :style="{'--facePath': `url('sprites/minesweeper/face_${face}.png')`}"
+            :style="{'--facePath': `url('/sprites/minesweeper/face_${face}.png')`}"
             @click="restartGame"
         >
         </div>
@@ -28,7 +28,7 @@
                     v-for="(cell, c) in row"
                     :key="c"
                     class="cell"
-                    :style="{'--cellPath': `url('sprites/minesweeper/cell_${cell.appearance === 'open' ? cell.value : cell.appearance}.png')`}"
+                    :style="{'--cellPath': `url('/sprites/minesweeper/cell_${cell.appearance === 'open' ? cell.value : cell.appearance}.png')`}"
                     @click="() => { if(canClick) clickCell(cell, [r, c])}"
                     @contextmenu.prevent="() => { if(canClick) flagCell([r, c])}"
                 >
@@ -249,7 +249,7 @@ h1 {
 .minesweeper-skeleton {
     width: 360px;
     height: 444px;
-    background-image: url('sprites/minesweeper/minesweeper_skeleton.png');
+    background-image: url('/sprites/minesweeper/minesweeper_skeleton.png');
     background-size: 360px 444px;
     image-rendering: pixelated;
 }
