@@ -26,7 +26,7 @@
                 :class="active ? 'border-blue-600' : 'border-gray-600'"
                 :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '400px' : '480px'}"
             >
-                <component :is="resolveName(props.name)" @shake-window="$emit('shake-window')" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)"/>
+                <component :is="resolveName(props.name)" @shake-window="() => { $emit('shake-window'); shakeEffect();}" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)" :class="{'glitch-rgb': glitching}"/>
             </div>
         </div>
     </div>
@@ -45,6 +45,7 @@ import MinesweeperContent from '../minesweeper-content.vue';
 import GamePortfolioContent from '../game-portfolio-content.vue';
 const { width:elemW, height:elemH } = useWindowSize();
 const { t, te } = useI18n()
+const glitching = ref<boolean>(false);
 
 
 let heightMinusNav = computed(() => {
@@ -63,6 +64,13 @@ const props = withDefaults(defineProps<{
     canMaximize: true,
     active: false,
 })
+
+function shakeEffect() {
+    glitching.value = true; 
+    setTimeout(() => {
+        glitching.value = false; 
+    }, 300);
+}
 
 function translateFileName(fname: OpenableFoldersOrFiles) : string {
     //need to swap whitespace for hyphen and make it lowercase
@@ -146,6 +154,15 @@ h2 {
     background-image: url('sprites/min_tab_inactive.png');
     background-size: 48px 48px;
     image-rendering: pixelated;
+}
+
+.glitch-rgb {
+  animation: rgb 0.3s steps(2) 1;
+}
+@keyframes rgb {
+  0%   { filter: drop-shadow(-4px 0 red) drop-shadow(4px 0 cyan); }
+  50%  { filter: drop-shadow(3px 0 red) drop-shadow(-3px 0 cyan); }
+  100% { filter: none; }
 }
 
 </style>
