@@ -25,10 +25,10 @@ const { locale, locales, setLocale } = useI18n()
 const flagUrl = computed(() => {
     switch(currLocaleName.value){
         case 'English': {
-            return 'sprites/english.png';
+            return '/sprites/english.png';
         }
         case 'Portuguese': {
-            return 'sprites/portuguese.png';
+            return '/sprites/portuguese.png';
         }
     }
 })

@@ -74,7 +74,7 @@ function shortenTxt(fileName: string) {
 const variant = propMapper[props.iconPlace]
 
 function computeIconUrl() {
-    return `sprites/icons/${props.icon}_${props.iconPlace}.png`
+    return `/sprites/icons/${props.icon}_${props.iconPlace}.png`
 }
 
 </script>

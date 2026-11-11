@@ -59,7 +59,7 @@ function openLink(target:string) {
       window.open("https://github.com/pedroperesdev/");
       break;
     case 'cv':
-      window.open("files/cv.pdf")
+      window.open("/files/cv.pdf")
       break;
   }
 }

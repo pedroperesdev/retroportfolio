@@ -14,7 +14,7 @@ import { stopSound } from '../../composables/stopSound.ts';
 
 const soundOn = ref<boolean>(true);
 const spriteUrl = computed(() =>
-    soundOn.value === true ? 'sprites/sound_on.png' : 'sprites/sound_off.png'
+    soundOn.value === true ? '/sprites/sound_on.png' : '/sprites/sound_off.png'
 )
 
 </script>
