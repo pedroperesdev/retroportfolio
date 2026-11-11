@@ -1,6 +1,6 @@
 <template>
   <div class="console cursor-interact-sprite" :class="hover" @click="$emit('openConsoleDialogue')">
-    
+    <span v-if="canInteract" class="hover-label font-pixel">{{ $t('game.consoleHover') }}</span>
   </div>
 </template>
 
@@ -30,6 +30,24 @@ const hover = computed(() => props.canInteract ? "console-hover" : null)
 .console-hover:hover {
     background-image: url('sprites/console_hover.png');
     animation: increase-size 0.6s forwards;
+}
+
+.hover-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20%);
+    display: none;
+    white-space: nowrap;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    padding: 0 4px;
+    pointer-events: none;
+}
+
+.console-hover:hover .hover-label {
+    display: block;
 }
 
 @keyframes increase-size {

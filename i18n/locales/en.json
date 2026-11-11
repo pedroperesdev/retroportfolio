@@ -8,7 +8,10 @@
     },
     "game": {
         "pcText": "You turned on the PC. Want to explore my projects/work experience?",
-        "consoleText": "You turned on the console. Want to play [PrayingPetals]?"
+        "consoleText": "You turned on the console. Want to play [PrayingPetals]?",
+        "pcHover": "Use computer",
+        "consoleHover": "Play Game",
+        "welcomeText": "Welcome to my room! Click on the highlighted objects to interact with them."
     },
     "computer": {
         "boot": {

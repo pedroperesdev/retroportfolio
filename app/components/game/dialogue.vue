@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 const { t } = useI18n()
-type Item = "console" | "pc"
+type Item = "console" | "pc" | "welcome"
 const props = withDefaults(defineProps<{
     item?: Item
 }>(), {
@@ -24,6 +24,7 @@ const emit = defineEmits(['closeDialogue', 'openComputer', 'openConsole'])
 const currText = ref("");
 const pcText = computed(() => t('game.pcText'));
 const consoleText = computed(() => t('game.consoleText'))
+const welcomeText = computed(() => t('game.welcomeText'))
 const typeDelay = 25
 
 let letterCount = 0;
@@ -46,6 +47,13 @@ function typewriterEffect(item: Item) {
                 return;
             }
             currText.value += consoleText.value[letterCount++];
+        }
+        else if (item == "welcome") {
+            if(currText.value.length === welcomeText.value.length) {
+                clearInterval(timer)
+                return;
+            }
+            currText.value += welcomeText.value[letterCount++];
         }
     }, typeDelay);
 }

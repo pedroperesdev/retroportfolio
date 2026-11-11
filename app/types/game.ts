@@ -1,1 +1,1 @@
-export type ItemsWithDialogue = "pc" | "console";
+export type ItemsWithDialogue = "pc" | "console" | "welcome";

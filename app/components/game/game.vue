@@ -1,6 +1,7 @@
 <template>
     <div 
         class="flex justify-center items-center h-screen"
+        @click="interactingWith === 'welcome' && closeDialogue()"
     >
         <div 
             class="relative room main-content"
@@ -46,7 +47,7 @@ const { width, height } = useWindowSize()
 
 const emit = defineEmits(['changeWindow'])
 
-const interactingWith = ref<ItemsWithDialogue | null>(null);
+const interactingWith = ref<ItemsWithDialogue | null>("welcome");
 const isMoving = ref<boolean>(false);
 const player = useTemplateRef<any>('player');
 const invertedMovementCells = [33, 34, 35, 36, 37, 41, 42, 43, 44, 45]
@@ -68,11 +69,13 @@ function calcPos(cell:number){
 
 //Dialogue popup logic
 function openPcDialogue() {
+  if(interactingWith.value) return;
   interactingWith.value = "pc";
   useSound('click-sound');
 }
 
 function openConsoleDialogue() {
+  if(interactingWith.value) return;
   interactingWith.value = "console";
   useSound('click-sound');
 }

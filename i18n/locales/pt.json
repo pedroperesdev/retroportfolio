@@ -8,7 +8,10 @@
     },
     "game": {
         "pcText": "Ligaste o PC. Queres explorar os meus projetos/experiência profissional?",
-        "consoleText": "Ligaste a consola. Queres jogar [PrayingPetals]?"
+        "consoleText": "Ligaste a consola. Queres jogar [PrayingPetals]?",
+        "pcHover": "Usar computador",
+        "consoleHover": "Jogar",
+        "welcomeText": "Bem-vindo ao meu quarto! Clica nos objetos destacados para interagir com eles."
     },
     "computer": {
         "boot": {
