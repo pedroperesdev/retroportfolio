@@ -16,6 +16,9 @@
                 <div class="icon-linkedin blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'linkedin')"/>
                 <div class="icon-github blink-hover cursor-interact-sprite" @click.stop="$emit('openLink', 'github')"/>
             </div>
+            <div class="text-bg px-4 prevent-select">
+                <p class="text-md text-purple-200 font-pixel">{{ $t('menu.desktopHint') }}</p>
+            </div>
         </div>
     </div>
 </template>

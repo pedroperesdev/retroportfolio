@@ -1,6 +1,7 @@
 {
     "menu": {
-        "message": "Clique para começar"
+        "message": "Clica para começar",
+        "desktopHint": "Para uma melhor experiência, usa um computador."
     },
     "select": {
         "message": "Seleciona um ficheiro para executar",
@@ -25,9 +26,9 @@
         },
         "login": {
             "title": "Bem-vindo ao OceanOS",
-            "instructions": "Introduz o teu nome de utilizador e palavra-passe para iniciar sessão no sistema.",
+            "instructions": "Define uma palavra-passe à tua escolha para entrares como convidado.",
             "username": "Utilizador",
-            "password": "Password",
+            "password": "Nova palavra-passe",
             "guest": "Convidado"
         },
         "desktop": {
