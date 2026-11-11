@@ -1,10 +1,14 @@
 <template>
-    <!--index page is responsible for switching between the following states: Menu, Select-screen, Game and Computer-->
+    <!--index page is responsible for switching between the following states: Menu, Select-screen, Game (room area), Console and Computer-->
     <div class="flex bg-black h-screen  overflow-hidden">
         <div class="cursor-sprite flex-1">
             <component :is="activeScreen" @change-window="changeWindow" @open-link="openLink" @change-state="changeWindow"/>   
         </div>
     </div>
+    <SoundToggle
+        v-if="activeScreen !== Computer"
+        class="absolute top-[40px] right-[220px]"
+    />
     <LanguageSwitcher
         v-if="activeScreen !== Computer"
         class="absolute top-[40px] right-[128px]"
@@ -20,7 +24,7 @@ import Computer from '~/components/computer/computer.vue';
 import { useSound } from '../composables/useSound.ts'
 import type { GameState } from '~/types/start.ts';
 import LanguageSwitcher from '~/components/computer/language-switcher.vue';
-import LanguageSwitcherDesktop from '~/components/computer/language-switcher-desktop.vue';
+import SoundToggle from '~/components/computer/sound-toggle.vue';
 
 const currState = ref<GameState | null>(null);
 const screens = {
