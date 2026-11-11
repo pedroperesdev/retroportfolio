@@ -4,7 +4,7 @@
         @click="interactingWith === 'welcome' && closeDialogue()"
     >
         <div 
-            class="relative room main-content"
+            class="relative room main-content shrink-0"
             :style="{'--windowH': height, '--windowW': width}"
         >
             <Carpet class="absolute z-1 top-[200px] left-[68px]"/>
