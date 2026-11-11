@@ -39,6 +39,8 @@ const soundCredits: { name: string; author: string; url: string }[] = [
     { name: 'Bubbles', author: 'Glaneur de sons', url: 'https://freesound.org/people/Glaneur%20de%20sons/sounds/104950/' },
     { name: 'Startup P6 227', author: 'beetlemuse', url: 'https://freesound.org/people/beetlemuse/sounds/692846/' },
     { name: 'Startup Sound Computer', author: 'xkeril', url: 'https://freesound.org/people/xkeril/sounds/827123/' },
+    { name: 'Explosion', author: 'LilMati', url: 'https://freesound.org/people/LilMati/sounds/403298/' },
+    { name: 'Flag', author: 'sora955', url: 'https://freesound.org/people/sora955/sounds/231321/' },
 ];
 </script>
 
