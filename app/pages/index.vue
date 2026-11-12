@@ -6,11 +6,11 @@
         </div>
     </div>
     <SoundToggle
-        v-if="activeScreen !== Computer"
+        v-if="activeScreen !== Computer && activeScreen !== Prayingpetalsgame"
         class="absolute top-[40px] right-[220px]"
     />
     <LanguageSwitcher
-        v-if="activeScreen !== Computer"
+        v-if="activeScreen !== Computer && activeScreen !== Prayingpetalsgame"
         class="absolute top-[40px] right-[128px]"
     />
 </template>
