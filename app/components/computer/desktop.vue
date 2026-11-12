@@ -158,7 +158,7 @@ function addNewWindow(name: string, icon: IconType) {
   if(openedWindows.value.length >= 4 || openedWindows.value.find(w => w.name == name)) return;
   openedWindows.value.map(w => w.z -= 1)
   let window = { id: id++, x: 100, y: 100, z: 4, name: name, icon: icon, canMax: true, status: 'normal'} as WindowState;
-  if(window.name === 'Minesweeper') window.canMax = false;
+  if(window.name === 'Minesweeper' || window.name === 'Calculator') window.canMax = false;
   openedWindows.value.push(window);
 }
 

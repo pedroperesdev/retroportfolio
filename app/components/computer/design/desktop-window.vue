@@ -24,7 +24,7 @@
             <div 
                 class="flex flex-col gap-[20px] bg-gray-200 border-[4px] px-[24px] py-[16px]" 
                 :class="active ? 'border-blue-600' : 'border-gray-600'"
-                :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '300px' : '480px'}"
+                :style="{'height': maximized ? heightMinusNav + 'px' : canMaximize ? '300px' : name === 'Calculator' ? '380px' : '480px'}"
             >
                 <component :is="resolveName(props.name)" @shake-window="() => { $emit('shake-window'); shakeEffect();}" @open-file="(file: OpenableFoldersOrFiles, iconType: IconType) => $emit('openFile', file, iconType)" :class="{'glitch-rgb': glitching}"/>
             </div>

@@ -60,13 +60,15 @@
                 "theme2": "You Are the Enemy"
             },
             "legau": {
-                "skills": "Nuxt, Vue.js, TypeScript, Tailwind CSS, Laravel, PHP, MySQL, REST APIs, MVC, Autenticação por Token, Middleware de Rotas, Docker, Git, Scrum",
+                "banner": "Estágio curricular pela faculdade · Legau · outubro de 2025 – fevereiro de 2026",
+                "skills": "Nuxt, Vue.js, JavaScript, Tailwind CSS, Laravel, PHP, MySQL, REST APIs, MVC, Autenticação por Token, Middleware de Rotas, Docker, Git, Scrum",
                 "p1": "O Legau Client Portal é uma consola de administração web que desenvolvi durante o meu estágio na Legau, uma startup portuguesa que criou uma plataforma de redação jurídica com IA para escritórios de advogados. Até então, as organizações clientes não tinham forma de gerir as suas próprias contas. O portal dá aos administradores de cada organização um único sítio para gerir utilizadores e grupos, controlar permissões e acompanhar a forma como a equipa usa a plataforma.",
-                "p2": "No frontend, construí a interface com Nuxt, Vue e TypeScript, usando componentes reutilizáveis do design system e criando novos. Implementei autenticação por token e um middleware de rotas em Nuxt que verifica o estado da sessão, guardado com useState, antes de cada navegação, para que as páginas protegidas só sejam acessíveis a utilizadores autenticados e os restantes sejam redirecionados para o login.",
+                "p2": "No frontend, construí a interface com Nuxt, Vue e JavaScript, usando componentes reutilizáveis do design system e criando novos. Implementei autenticação por token e um middleware de rotas em Nuxt que verifica o estado da sessão, guardado com useState, antes de cada navegação, para que as páginas protegidas só sejam acessíveis a utilizadores autenticados e os restantes sejam redirecionados para o login.",
                 "p3": "No backend, desenvolvi uma REST API em Laravel com uma arquitetura em camadas Controller–Service–Model, uma variante do MVC adequada a APIs. Os controllers tratam os pedidos e respostas HTTP, os services contêm a lógica de negócio e os modelos Eloquent funcionam como camada ORM que mapeia as tabelas da base de dados. As funcionalidades incluíram a gestão de utilizadores (listagem com pesquisa, filtros e paginação, além de criação, edição e desativação), a gestão de grupos com atribuição de membros, um fluxo de recuperação de palavra-passe com e-mails traduzidos e os endpoints das páginas de estatísticas de utilização.",                
                 "p4": "O trabalho foi feito remotamente numa equipa pequena, com Scrum, as tarefas geridas no ClickUp e o código alojado no Bitbucket. Cada funcionalidade foi desenvolvida no seu próprio branch e passou por revisão de código antes do merge."
             },
             "portfolio": {
+                "banner": "Portefólio retro em jogo · outubro de 2026",
                 "skills": "Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Nuxt i18n, VueUse, Nuxt Image, Máquinas de Estados, Pixel Art",
                 "overview": {
                     "title": "Visão geral:",

@@ -3,6 +3,9 @@
     <div class="flex justify-center">
         <NuxtImg src="/sprites/title.png" width="210" height="68" class="max-w-full portfolio-title" />
     </div>
+    <p class="font-pixel bg-blue-600 inline-block px-2 py-1">
+        {{ $t('computer.projects.portfolio.banner') }}
+    </p>
     <div class="flex flex-col">
         <h1 class="font-pixel bg-gray-400">{{ $t('computer.projects.labels.skills') }}</h1>
         <h2 class="font-pixel bg-gray-300">{{ $t('computer.projects.portfolio.skills') }}</h2>
